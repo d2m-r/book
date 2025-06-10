@@ -1,0 +1,172 @@
+---
+title: "Tidyverse for data types"
+---
+
+# Why specialized packages exist for text, factors, and dates
+
+## Base R can do this stuff, but it's not always great
+
+## Tidyverse functions are useful:
+
+### Consistent syntax
+
+### More intuitive functions
+
+### More intuitive pattern matching (stringr)
+
+### Seamlessly compatible with dplyr, tidyr, and the rest of the tidyverse
+
+# Text data with stringr
+
+## Overview
+
+### Remember what strings and character vectors are?
+
+### Remember what regex is?
+
+### Special things about strings (using quotes, escaping characters, etc.)
+
+### Base R can do string stuff - Useful base R string functions
+
+#### paste & paste0
+
+#### c
+
+#### toupper, tolower
+
+#### is.character
+
+#### toString
+
+#### Pattern matching with grep family
+
+## Match strings
+
+### str_detect
+
+### str_starts
+
+### str_ends
+
+### str_count
+
+## Subsetting and length
+
+### str_sub
+
+### str_subset
+
+### str_length
+
+### str_pad
+
+### str_trunc
+
+### str_trim
+
+## Mutate, join, split
+
+### str_sub (again)
+
+### str_replace, str_replace_all
+
+### str_remove, str_remove_all
+
+### str_to_lower, str_to_upper, str_to_title
+
+### str_split
+
+### str_c, str_glue
+
+### str_flatten
+
+# Factors with forcats
+
+## Overview
+
+### What are factors? 
+
+### Factors vs strings
+
+#### Levels
+
+#### Order
+
+#### Closed set
+
+## Base R can do factor stuff 
+
+(and unlike with strings, you'll use these base R factor functions a lot!)
+
+### factor
+
+### levels
+
+### relevel
+
+### other base factor functions are mostly variations on these
+
+## Useful forcats functions
+
+### fct_relevel
+        
+### fct_reorder
+
+### fct_rev
+
+### fct_recode
+
+### fct_collapse
+
+### fct_other
+
+### fct_drop
+
+### fct_expand
+
+# Dates and times with lubridate 
+<!-- I don't use lubridate much and it wasn't in the original d2mr, so this is just a possible list of things to cover suggested by copilot -->
+
+## Overview
+
+### What are dates and times?
+
+### Why do we need a whole package for them?
+
+### Base R can do date and time stuff, but it's not great
+
+#### as.Date
+
+#### as.POSIXct
+
+#### as.POSIXlt
+
+#### strptime
+
+## lubridate functions
+
+### Parsing dates and times
+
+#### ymd, mdy, dmy, ymd_hms, etc.
+
+#### parse_date_time
+
+### Extracting components
+
+#### year, month, day, hour, minute, second
+
+#### wday, yday, mday
+
+### Manipulating dates and times
+
+#### %m+% and %m-% for adding and subtracting time
+
+#### interval and duration
+
+#### floor_date, ceiling_date, round_date
+
+### Formatting dates and times
+
+#### format
+
+#### strftime

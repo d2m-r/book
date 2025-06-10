@@ -1,0 +1,45 @@
+---
+title: "R Language Essentials"
+---
+
+# Introduction
+
+## What is R and why use it?
+
+## Object-oriented programming
+
+# R syntax
+
+## Variables
+
+## Functions
+
+## Data types
+
+## Operators
+
+# R data structures
+
+## Vectors
+
+## Lists
+
+## Matrices
+
+## Data frames
+
+## Tibbles
+
+# R packages
+
+## What are packages? (aka libraries)
+
+## Installing and loading packages
+
+## Same function, different packages, oh no!
+
+### Functions with different names in different packages that all do the same thing
+
+### Functions with the same name in different packages that do different things
+
+## Commonly used packages in D2MR
