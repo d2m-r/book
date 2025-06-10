@@ -1,6 +1,6 @@
 # Preface {.unnumbered}
 
-This is a Quarto book.
+This is an in-development textbook for the course "From Data to Manuscript in R" offered at the University of Chicago. At this point, you shouldn't be seeing this at all. If you are not me, I'm really not sure why you're here, tbh. Go look at real books like [R for Data Science](https://r4ds.hadley.nz/).
 
 ## Outline
 

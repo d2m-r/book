@@ -280,27 +280,49 @@ You can also access help documentation by typing `?function_name` or `help(funct
 It will bring up the documentation for that function in the help pane, the same as if you searched for it.
 
 #### Viewer pane
+
+The **viewer pane** is where you can rendered and interactive content like HTML files, Shiny apps, and dynamic visualizations.
+When you create something with Quarto in this class, it will typically open in the viewer pane by default.
+You can pop out the contents of the viewer pane to your default browser by clicking the "Open in Browser" button next to the broom/clear icon.
+
 #### Plots pane
+
+The **plots pane** is (unsurprisingly) where you'll see plots and visualizations created in R.
+When you run a plotting function from an R script or the console, the output will appear here.
+The plots pane offers some basic functionality for interacting with plots, like zooming in, exporting the plot to a file, and clearing the plot output.
+As with most everything else described in this section, you can also do all of this from the console with functions like `ggsave()` and `plot()`.
+
+Note that plots generated in R and Quarto notebooks will appear in the document itself, just below the code chunk that generates them.
+You can change this default behavior by selecting "Chunk Output in Console" from the gear icon in the source pane of the notebook document.
+As you might expect based on the wording of the option, this won't just change where plots are displayed.
+It will display output of code executed in code chunks to the console instead of the document itself.
+This kind of defeats the purpose of working in a notebook in many ways, so I recommend sticking with the default unless you have a strong personal desire to change it.
+
 
 ### More panes
 
 These panes won't be used as much in this class, but you can toggle them on and off as needed:
 
-1. Connections pane
-2. Build pane
-3. Presentations pane
-4. Tutorial pane
+1. Connections pane: This pane is used to manage connections to databases and other data sources. You can connect to databases like SQLite, MySQL, and PostgreSQL, as well as other data sources like Google Sheets and AWS S3. 
+    1. Personally, in my own interactions with SQL database in R I prefer to stick with writing out the code with something like the DBI package. I honestly just find the connections interface confusing.
+2. Build pane: This pane is mostly just a button. When you're working in certain kinds of projects, like this very Quarto book, you can click the "Build" button to render the project. This will run the build processes necessary to render to the desired output, and you'll see the ongoing log of those processes in the background jobs pane. The rendered project will open in the viewer pane, browser, or another app like Word or Acrobat, depending on the kind of project. 
+    1. The render/build button in the build pane has nearly the same functionality as the render/build button in the toolbar above the source pane. The main difference is that rendering from the source will render the currently open file, while rendering from the build pane will render the entire project.
+    2. The build pane won't appear if you aren't working in a project that has a build process defined. I find that sometimes the build pane just doesn't appear in projects even when it is supposed to. You can always [build Quarto projects directly from the terminal](https://quarto.org/docs/projects/quarto-projects.html#rendering-projects) with `quarto render`, so don't work too hard at getting the build pane to appear if it doesn't.
+3. Presentations pane: This pane is used to view Quarto presentations, like the ones I use in class. It will only appear if you have a Quarto project open that contains a presentation file (like a .qmd file with the `format: revealjs` option in the YAML header).
+4. Tutorial pane: RStudio has a built-in tutorial system called `learnr`. We won't use it, but you can play around with it if you like. There's not much else to do with the tutorial pane.
 
 ## General Settings & Expected Behavior
 
-RStudio is extremely customizable with options and keyboard shortcuts, and you can set it up to work the way you like. You can ignore most of the settings for now, but there are a few that you should be aware of from the start. You don't need to customize everything now, but you should know where to find the settings, what they do, and how to change them later.
-
+RStudio is extremely customizable with options and keyboard shortcuts, and you can set it up to work the way you like. You can ignore most of the settings for now, but there are a few that you should be aware of from the start. 
+You don't need to customize everything now, but you should know where to find the settings, what they do, and how to change them later.
 
 ### Global vs. Project Options
 
-RStudio has both global options (which apply to all projects) and project-specific options (which apply only to the current project). You can access these settings through the "Tools" menu. When it comes to initial setup of RStudio, you'll want to focus on the global settings first. You can then adjust project settings as needed.
+RStudio has both global options (which apply to all projects) and project-specific options (which apply only to the current project). 
+You can access these settings through the "Tools" menu. When it comes to initial setup of RStudio, you'll want to focus on the global settings first. You can then adjust project settings as needed.
 
 This section will walk through the most important global options to get started in D2M-R.
+The screenshots are directly from my own RStudio, so you can see which options I use (though you don't need to use the same setup!).
 
 ### General
 
@@ -310,7 +332,11 @@ This section will walk through the most important global options to get started 
 
 ### Pane Layout {#sec-pane-layout}
 
+
+
 ### Package Management
+
+
 
 ### R Markdown
 
@@ -324,21 +350,42 @@ This section will walk through the most important global options to get started 
 
 ### Accessibility
 
+RStudio offers a modest set of accessibility features like screen reading and announcements that you can adjust for your own needs.
+At this point the accessibility options aren't exactly robust, but they are improving with new releases, so keep an eye on this set of options if there are features you need that are not yet available.
+Check out Posit's [Accessibility Guide](https://support.posit.co/hc/en-us/articles/360044226673-RStudio-Accessibility-Features) for more up-to-date info on this front.
+
+Remember that you can use keyboard shortcuts and appearance options to improve accessibility even if there isn't something directly available in the accessibility settings.
+RStudio also (generally) plays nicely with system accessibility features set from your Mac or PC settings.
+
+
 ### Snippets
 
-##  File types - just a preview, we'll cover these in more detail later!
+##  File types
 
-    1. .Rmd
-    2. .qmd
-    3. .R
-    4. .Rproj
-    5. Lots of metadata files you can mostly ignore (including literally in your .gitignore)
-        1. .Rhistory
-        2. .RData
-        3. .Rprofile
-        4. .Rproj.user
+RStudio works with many file types (including any text-based files), but there are a few that you'll use more than others.
+We'll go over each in detail as they come up in the course, but here's a quick overview of the most common file types you'll encounter in RStudio:
+
+1. .R: The R script file type. This is where you'll write and save most of your R code, at least until you become a Quarto notebook devotee.
+2. .md: The markdown file type. [Markdown](https://www.markdownguide.org/) is a family of markup languages, allowing you create formatted documents using plain text syntax. Common things you'll see styled in a markdown file are heading levels (using `#`, `##`, `###`, etc.), text styling (like `*italics*` and `**bold**`), and links (`[link text](https://example.com)`).
+3. .Rmd: The classic R notebook that combines code and markdown. Rmd = R + md. R notebooks include a YAML header to set document options (more on that later), plain text that will use [pandoc](https://pandoc.org/) to render markdown syntax into formatted text, and code chunks that will run R code and display the output in the rendered document. You can also include code directly in the markdown text to dynamically reference R objects. This will be a major part of the second half of this course!
+4. .qmd: The Quarto notebook file type, which function very, very similarly to R notebooks. Quarto is branded as "R Markdown 2.0" by Posit (the makers of RStudio), and it's replacing R Markdown moving forward. If you are already a dedicated R Markdown user and don't want to change your ways, thankfully Quarto notebooks have backwards compatibility with everything that's always existed in R Markdown. Quarto notebooks just offer new features and enhancements. 
+    1. There are some minor differences in general formatting norms and best practices, but in 99.9% of cases you should be able to take an .Rmd file, save it as a .qmd, and have no loss in functionality.
+    2. In D2M-R, we use Quarto notebooks instead of classic R notebooks. As of this point I'll  refer to Quarto (instead of "Quarto and R Markdown") and Quarto notebooks or .qmds (instead of "Quarto and R Notebooks" and ".qmd and .Rmd" files) for simplicity. Know that if you are sticking with .Rmds, most things are interchangeable, but some new features and stylings will only work in .qmd files.
+5. .Rproj: The R project file type is a special file associated with each R project you create that contains meta-information about that project, like its working directory, project options, and other settings. The .Rproj file will be created automatically when you create a new project. If you try to open the .Rproj file, it will open the full project in RStudio, but you can also open it in a text editor to view and edit the contents.
+
+All of the above are the extensions to file types, but there are also a handful of metadata files and folders you should be aware of which will (or at least can) generate automatically, though you can mostly ignore them. You should actually *literally* ingore them by adding them to your project repo's .gitignore file.
+
+The "." at the beginning of these files and folders indicates that they are hidden files; they aren't the extensions that come at the end of file names.
+
+1. .Rproj.user: A directory of temporary files that maintains the state of your RStudio project, like what files you have open when you exit your session.
+2. .Rhistory: This file stores the history of commands run in the R console for the current project. It is automatically created and updated as you run commands and used to define which previous commands you can access with up and down arrows in the terminal.
+3. .RData: This optional file can store objects in your environment between R sessions. You have to enable it in your options. If you're working on a project collaboratively (or, say, a project that someone may need to clone from GitHub to grade), it's not a great idea to use this, since it won't be consistent.
+4. .Rprofile: This file can contain R code that runs automatically when you start an R session in the project. Again, not great for collaborative projects.
+
         
 ## Guided Exercise
+
+<!-- Just an overview here. Link to the chapter in the guided exercises section for the exercise itself. -->
 
 Basic navigation in RStudio. 
 Create a file from the files pane and in the terminal.
