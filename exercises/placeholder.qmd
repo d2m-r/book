@@ -1,0 +1,6 @@
+---
+title: "placeholder"
+format: html
+---
+
+placeholder for guided exercises directory
