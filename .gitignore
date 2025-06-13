@@ -49,3 +49,9 @@ po/*~
 rsconnect/
 
 /.quarto/
+
+
+# Scratchpad docs
+scratchpad.R
+
+localonly/
