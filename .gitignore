@@ -8,6 +8,7 @@
 
 # User-specific files
 .Ruserdata
+*.DS_store
 
 # Example code in package build process
 *-Ex.R
@@ -49,6 +50,7 @@ po/*~
 rsconnect/
 
 /.quarto/
+
 
 
 # Scratchpad docs
