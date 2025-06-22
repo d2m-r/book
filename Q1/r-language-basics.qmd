@@ -2,15 +2,127 @@
 title: "R Language Basics"
 ---
 
-## Introduction
+## Overview
 
-### What is R and why use it?
+R is a programming language and software environment based on another programming language called S.
+It is primarily used for data management, analysis, and presentation. 
+R is free to use and open-source, making it both approachable to new learners and flexible for advanced users. 
+R is built on collaboration and transparency, with a large community contributing to the development of the language and tools extending its functionality.
+The R community also works to make R accessible and functional, with extensive documentation for the language itself and its packages of functions.
+Beyond documentation, you can find a wealth of user-created resources for learning and using R, including freely available tutorials, videos, workshops, and full courses and textbooks (ahem).
 
-### Object-oriented programming
+#### R vs. Python
+
+Both R and Python are popular choices for statistical analysis and visualization in research, and the two have a lot in common.
+They are both free, open-source languages with large communities and extensive libraries of functions. 
+The biggest difference between the two is that R is primarily focused on statistical analysis and visualization, while Python is a general-purpose programming language that can be used for data analysis as well as a range of other applications.
+
+If Python can do so much more than R, why would anyone use R? Because the Python's versatility is a little bit of a double edged sword.
+Of course Python can handle complex data analysis like R, but R is *designed* for this stuff.
+Because R is highly specialized, a little code and knowledge go a long way.
+You do the work of knowing what kinds of data problems you need to solve, and R and the R community will give you powerful and precise tools to solve them.^[Absolutely no shade on Python here. Yay Python! A+ great job! But this is a class about R.]
+
+Although Python is more widely used generally, R tends to be favored in academic and research settings, especially in the social sciences.
+As a psychologist, I care about managing data in reproducible and transparent ways, conducting and reporting a range of statistical analyses, and creating high-quality, publication-ready visualizations.
+R lets me get straight to the point to do all that, and it lets me do it without having to learn a language enough to really call myself a "programmer."
+
+#### RStudio
+
+We talked about RStudio in @sec-rstudio, but in case you missed it, here's some things to know as you get started with R.
+
+R is a programming language; RStudio is an integrated development environment (IDE) for that language. You interact with R via the RStudio software. R exists without RStudio, but not the other way around.
+
+Well, at least in theory. In practice, RStudio is *the* way to interact with R. It's a (relatively) user-friendly interface for writing and executing R code that is pretty streamlined to the needs of the R user. 
+Unlike other popular IDEs (e.g., Visual Studio, AWS, Eclipse), RStudio doesn't need to meet the needs of *any* programmer who might be doing *anything* in *any* language.
+Consequently, RStudio is the go-to for R users, since it lacks the clutter that comes with general-purpose IDEs.
+
+What you need to know now is:
+
+1. R =/= RStudio
+2. But it might as well.
+
+#### Object-oriented programming
+
+R is an *object-oriented programming language*, which means that it is built around the concept of "objects" that contain data and functions.
+What's an object? 
+According to [Wikipedia](https://en.wikipedia.org/wiki/Object_(computer_science)), an *object* is "an entity that has state, behavior, and identity."
+I personally find that definition to be baffling, because like...isn't that everything?
+
+Well, it kind of *is* everything. You can think of objects in R as any *thing* you want to work with in R.
+If it's something you'd want to put a label on for some reason, that's an object.
+A number or string as a variable to use later? Object.
+A table with data? Object.
+The output of a statistical test? Object.
+A plot? Object.
+
+You get the idea. 
+Basically, every time you open up a new R session, you are the god of a tiny little empty world. 
+If you want to see something happen in your world, you have to create the stuff that does the happening and is happened to and is the happening.^[I study language. I'm allowed to talk nonsense like this.]
+Want to watch the denizens of your universe put on a play about a magician who eats too much cheese?
+You have to bring into existence the players, the script, and the stage, but also the concepts of "play," "magician," "cheese," "eating", and "the amount that is socially and/or biologically too much cheese."
+
+In R, if you want to see a graph of the relationship between how much cheese an individual eats and whether or not they are a magician, you have to create that world with objects -- the *environment*. 
+The variables "how much cheese" and "is magician?" are objects. The rows, columns, and values that make up a table of data are objects. Those objects are all inside of an object that is the table itself. The calculation of the association between the two variables is an object. The graph that visualizes the relationship is an object. The axis labels on the plot object are objects...
+
+What you need to know: 
+
+1. R works by doing stuff to stuff. 
+2. So "stuff" has to exist.
 
 ## R syntax
 
+In natural language, syntax is the system of rules that govern how words are combined to form phrases and sentences in meaningful ways. Sentence makes mixing nothing all words of at the a it something up else or mean.^[Mixing up the words of a sentence makes it mean something else or nothing at all.] 
+
+<!-- Men in tights clip of sheriff of rottingham -->
+{{< video https://www.youtube.com/embed/CKhGiFOMsS0 >}}
+
+Some things are nouns, some are verbs. Some verbs need objects, some don't. Some words mean more than one thing and require specification or context. Some words connect other words together. Some words don't serve a lot of functional purpose but make the sentence sound better or easier to understand. Words like pronouns can replace other words, but only after following the rules to let you do that. Some words you can omit entirely by restructuring other parts of the sentence. Some rules will technically communicate a meaning correctly, but are much more understandable if there is non-speech stuff like gestures or facial expressions to help clarify the meaning. Some rules are more flexible than others, and some are more rigid. Some rules are more important than others, and some are more about style than substance.
+
+In a programming language, syntax works similarly. R syntax is the set of rules that govern how you write code in R to make it do what you want it to do.
+For each example I gave for natural language above, I can think of at least one equivalent situation. Adding in stuff that isn't necessary to make it easier to read? That's taking advantage of R being whitespace insensitive. Using gesture to complement ambiguous meaning? That's using comments. Eliding a subject because it's implicit or otherwise already understood? That's skipping optional arguments in functions, or using the pipe operator to pass objects from arguments in one function to arguments in another. You get the picture.
+
+While programming languages are nowhere near as complex and dynamic as natural languages, you can think about programming syntax as using the same kinds of building blocks.
+
+### Environments
+
+Your R *environment* is the collection of objects that exist in your R session at any given time. 
+When you start a new R session, your environment is empty.
+Creating variables, data structures, functions, plots, and other objects adds them to your environment so you can refer to them later.
+
+Everything in your environment has a unique identifier, the name you give the object.
+Because identifiers are unique, creating an object with the same name as an existing object will overwrite the existing object with the new one.
+
+You can see the objects in your environment by looking at the Environment pane in RStudio, or by using the `ls()` function in the R console to list the objects in your environment.
+Critically, you can only interact with objects that exist in your environment, and environments are not persistent across R sessions.
+When you close RStudio, your environment is cleared, and you have to recreate any objects you want to use in the next session.
+
+
 ### Variables
+
+Variables are the nouns of R syntax. These objects are the "things" you create, look at, manipulate, etc. 
+
+In R we create variables by assigning a value to a name with the assignment operator `<-`. Technically you can use `=` to assign a value to a variable, but you really shouldn't; `<-` is the preferred assignment operator in R. <!-- link to something explaining why -->
+
+Once you have created a variable, you can use it in your code to refer to the value it contains, including assigning other variables.
+
+For example:
+
+```r
+the_answer <- 42
+pi <- 3.14159
+round_answer <- pi*the_answer
+
+my_name <- "Natalie"
+your_name <- "Lucas"
+our_names <- c(my_name, your_name)
+```
+
+You can even assign values to variables using the existing variable itself:
+
+```r
+last_name <- "Dowling"
+my_name <- paste(my_name, last_name)
+```
 
 ### Functions
 
