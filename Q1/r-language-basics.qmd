@@ -38,17 +38,17 @@ Consequently, RStudio is the go-to for R users, since it lacks the clutter that 
 
 What you need to know now is:
 
-1. R =/= RStudio
-2. But it might as well.
+1. R =/= RStudio...
+2. ...but it kinda might as well.
 
 #### Object-oriented programming
 
 R is an *object-oriented programming language*, which means that it is built around the concept of "objects" that contain data and functions.
 What's an object? 
 According to [Wikipedia](https://en.wikipedia.org/wiki/Object_(computer_science)), an *object* is "an entity that has state, behavior, and identity."
-I personally find that definition to be baffling, because like...isn't that everything?
+I personally find that definition to be baffling, because like...isn't that anything?
 
-Well, it kind of *is* everything. You can think of objects in R as any *thing* you want to work with in R.
+Well, it kind of *is* anything. You can think of objects in R as any *thing* you want to work with in R.
 If it's something you'd want to put a label on for some reason, that's an object.
 A number or string as a variable to use later? Object.
 A table with data? Object.
@@ -128,6 +128,107 @@ my_name <- paste(my_name, last_name)
 
 ### Data types
 
+Any piece of data you can work with in R takes one of 6 forms: numeric, integer, complex, character, factor^["Factor" is technically not a data type, but we can treat it like one.], and logical.
+The first three are number-y, the next two are word-y, and the last is truth-y.
+
+We'll break down 5 of these 6 (we'll skip complex, but you can learn more about them [here](https://www.r-bloggers.com/2009/12/using-complex-numbers-in-r/) if you like). For quick reference:
+
+| Data type | Description | Example |
+|-----------|-------------|---------|
+| Numeric   | Decimal numbers, including whole numbers | `3.14`, `42.0`, `-1.5` |
+| Integer   | Whole numbers, represented with an `L` suffix | `42L`, `-1L`, `1000L` |
+| Complex   | Numbers with a real and imaginary part, represented with a `i` suffix | `3 + 4i`, `2 - 5i` |
+| Character | Text strings, enclosed in quotes | `"hello"`, `'123'`, `"R is great!"` |
+| Factor    | Leveled categorical data, stored as integers with labels | `factor(c("low", "medium", "high"))` | 
+| Logical   | Boolean values, either `TRUE` or `FALSE` | `TRUE`, `FALSE`, `x > 5` |
+
+You can check the data type of an object using the `class()` function, which will return the class of the object. 
+Try using `class()` on the examples above to see what it returns, like:
+
+```r
+class(3.14)          # "numeric"
+class(42L)           # "integer"
+class("hello")       # "character"
+class(factor(c("low", "medium", "high")))  # "factor"
+class(TRUE)          # "logical"
+```
+
+When you run `class()` and it returns something, it's creating a data object which has to have a type itself. 
+See if you can figure out what kind of data is being returned with `class()` by using `class()`^[If you run `class(class(3.14))`, it will return `"character"`.]
+
+#### Numeric
+
+*Numeric* variables are, unsurprisingly, numbers. 
+Basically any number that you can treat like a number.
+If you added 0 to it, would it equal itself? If so, it's numeric. (As opposed to a string that looks like a number, like `"100"`. Can't add 0 to that, and if you did, it would probably be something like concatenation: `"1000"`.)
+
+Create a numeric variable by assigning a number made up of digits, decimals, and/or negative signs to a variable name:
+
+```r
+my_number <- 3.14
+my_other_number <- -42
+```
+
+#### Integer
+
+The *integer* variable is a subset of numeric variables.
+A number that does not have a decimal point is an integer.
+Integers are whole numbers (1, 5, 100000), negative whole numbers (-1, -5, -100000), and zero (0).
+
+Pick your favorite number without a decimal point, and assign it to a variable name, then run `class()` on that variable to see its data type:
+
+```r
+lucky <- 11
+class(lucky)  # ???integer???
+```
+
+Running class on something that looks like an integer will return numeric, not integer.
+Remember that integers are a subset of numeric variables, so R is taking a better-safe-than-sorry approach and assuming you want the more generic, broad-scope version of what you gave it.
+
+If you want to specify a variable as an integer, you can do so by adding an `L` suffix to the number when you assign it to a variable:
+
+```r
+luckier <- 11L
+class(luckier)  # "integer"!
+```
+
+You can also convert an existing numeric value to an integer with `as.integer()`:
+
+```r
+my_number <- 42
+class(my_number)  # "numeric"
+my_integer <- as.integer(my_number)
+class(my_integer)  # "integer"
+```
+
+You can use `as.integer()` on non-integer numeric values. The result will be everything before the decimal point, effectively rounding down to the nearest whole number:
+
+```r
+my_decimal <- 4.2 # numeric type
+another_integer <- as.integer(my_decimal) # 4 - integer type
+```
+
+Specifying data as integer with `L` or converting it with `as.integer()` typically isn't necessary, but it can be useful when you need to ensure that a value is treated as an integer, like as an argument of a function that only accepts integers.
+
+The flip of the integer is a *double* variable, which is the default numeric type in R. 
+It just means the number can have a decimal point, whether or not it's visually represented. 
+Since numeric values are double by default, you won't see `class()` return "double", you just mentally note that that's what you've got.
+
+#### Character
+
+
+
+#### Factor
+
+
+
+#### Logical
+
+
+
+#### Missing data: NA
+
+
 ### Operators
 
 ## R data structures
@@ -142,3 +243,6 @@ my_name <- paste(my_name, last_name)
 
 ### Tibbles
 
+
+<!-- Citations to add -->
+<!-- white_2009_using -->
