@@ -33,7 +33,7 @@ title: "R Programming"
 
 ## Scope and environments
 
-# Regular expressions
+# Regular expressions {#sec-regex}
 
 ## What is regex? What's the point?
 
