@@ -1,6 +1,0 @@
----
-title: "placeholder"
-format: html
----
-
-placeholder for Q2 chapters directory

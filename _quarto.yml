@@ -7,8 +7,19 @@ book:
   date: "6/1/2025"
   chapters:
     - index.qmd
-    - Q1/rstudio.qmd
-    - references.qmd
+    - chapters/intro.qmd
+    - chapters/solving-problems.qmd
+    - chapters/rstudio.qmd
+    - chapters/git-github.qmd
+    - chapters/r-language-basics.qmd
+    - chapters/packages.qmd
+    - chapters/r-programming.qmd
+    - chapters/tidyverse.qmd
+    - chapters/dplyr-tidyr.qmd
+    - chapters/stringr.qmd
+    - chapters/forcats.qmd
+    - chapters/lubridate.qmd
+    - chapters/basics-viz-stats.qmd
 
 bibliography: references.bib
 
@@ -17,6 +28,3 @@ format:
     theme: cosmo
   pdf:
     documentclass: scrreprt
-
-
-
