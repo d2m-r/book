@@ -10,6 +10,78 @@ title: "Intro to Programming in R"
 
 ### Indexing and subsetting with [ ] & $
 
+
+- use `:` to create a vector of integers beginning with one number and ending with another
+    - `1:5` is equivalent to `c(1, 2, 3, 4, 5)`
+- use `[` and `]` to select elements of a vector, list, or data frame by position or name
+    - `c(1, 10, 3, 1000, 2)[4]` returns the fourth element of the vector, `1000`
+- use `,` to separate row and column indices when selecting from a data frame or matrix
+    - `mtcars[1, ]` returns the first row of the `mtcars` data frame
+    - `mtcars[, 1]` returns the first column of the `mtcars` data frame
+    - `mtcars[1, 1]` returns the value in the first row and first column of the `mtcars` data frame
+- use `[[` and `]]` to select a single list element by position or name
+    - `my_list <- list(first = 1, second = 2); my_list[[2]]` returns `2`
+- use `$` to select a list element by name
+    - `mtcars$mpg` returns the `mpg` column of the `mtcars` data frame
+    - `my_list <- list(first = 1, second = 2); my_list$second` returns `2`
+
+
+How are `[` and `[[` different? 
+`[` always returns an object of the same type as the original object, while `[[` returns a single element of the object.
+This starts to matter when you're working with complex data structures that store multiple data types, like lists, data frames, and model output.
+
+```r
+# Create a list with two elements: a numeric vector and a character vector
+mixed_list <- list(a = 1:5, b = letters[1:5])
+```
+
+If you print the list, you'll see both elements:
+
+```
+> mixed_list
+$a
+[1] 1 2 3 4 5
+
+$b
+[1] "a" "b" "c" "d" "e"
+```
+
+Using single brackets to select the first element returns a list with one element (the numeric vector):
+
+```
+> mixed_list[1]
+$a
+[1] 1 2 3 4 5
+
+> class(mixed_list[1])
+[1] "list"
+```
+
+Using double brackets to select the first element returns just the numeric vector itself:
+
+```
+> mixed_list[[1]]
+[1] 1 2 3 4 5
+
+> class(mixed_list[[1]])
+[1] "integer"
+```
+
+```r
+# Create a gradebook dataframe
+spanish101 <- data.frame(
+    name = c("Annie", "Troy", "Abed", "Kevin"),
+    age = c(20:22, 99),
+    score = c(101, 69, 90, -10)
+)
+
+spanish101[3, "score"]  # returns 90
+
+spanish101$score[1]     # returns 101
+
+spanish101[spanish101$name == "Troy", "age"]  # returns 21
+```
+
 ### (more base R essentials)
 
 ## Functions in R {#sec-programming-functions}

@@ -201,6 +201,48 @@ It's not important right now that you understand everything going on in the code
 For now, just look at how functions are represented, what arguments can look like, how some arguments are optional, and what the function returns (or doesn't return) as output.
 
 
+#### Functions to get your started
+
+Now is a good time to play around with R functions to get a feel for how they work.
+The functions below are a collection of some of the base R functions you're likely to use often.
+Try running the examples in your R console to see what they do, then try changing the inputs to see how the output changes.
+
+You can also use the `?functionname` command to view the documentation for any function, which will describe what the function does, its arguments, and its return value.
+
+##### Generally useful base R functions
+
+| Function | Description | Example | Output |
+|----------|-------------|---------|--------|
+| `c()`    | Combine values into a vector | `c(1, 2, 3)` | `c(1, 2, 3)` |
+| `paste()` | Concatenate strings together | `paste("Hello", "world!")` || `"Hello world!"` |
+| `data.frame() ` | Create a data frame from vectors | `data.frame(x = 1:3, y = c("a", "b", "c"))` | A data frame with 3 rows and 2 columns named `x` and `y` |
+| `class()` | Check the data type of an object | `class(3.14)` | `"numeric"` |
+| `str()`  | Display the structure of an object | `str(mtcars)` | A summary of the `mtcars` data frame |
+| `length()` | Get the length of a vector | `length(c(1, 2, 3, 4, 5))` | `5` |
+| `head()` | View the first few rows of a data frame or vector | `head(mtcars)` | The first 6 (default) rows of the `mtcars` data frame |
+| `summary()` | Get a summary of a data frame or vector | `summary(mtcars)` | Summary statistics for each column in the `mtcars` data frame |
+
+##### Math & statistics
+
+For the examples below, start with defining a vector of numeric values:
+
+```r
+number_list <- c(11, 37, 42, 101, 202, 1000, 2025, -3)
+```
+
+| Function | Description | Example | Output |
+|----------|-------------|---------|--------|
+| `round()` | Round a numeric value to a specified number of decimal places | `round(67.1988, 2)` | `67.2` |
+| `sum()`  | Calculate the sum of a numeric vector | `sum(number_list)` | `3415` |
+| `min()`  | Find the minimum value in a numeric vector | `min(number_list)` | `-3` |
+| `max()`  | Find the maximum value in a numeric vector | `max(number_list)` | `2025` |
+| `mean()` | Calculate the mean of a numeric vector | `mean(number_list)` | `426.875` |
+| `median()` | Calculate the median of a numeric vector | `median(number_list)` | `71.5` |
+| `sd()`   | Calculate the standard deviation of a numeric vector | `sd(number_list)` | `726.7457` |
+| `cor()`  | Calculate the correlation between two numeric vectors | `cor(number_list[1:4], number_list[5:8])` | `-0.2855236` |
+
+
+
 ### Data types
 
 Data you can work with in R takes one of 6 forms: numeric, integer, complex, character, logical, and raw.
@@ -355,15 +397,68 @@ In that chapter we'll talk a lot more about working with strings in R, including
 
 ### Operators
 
+#### Arithmetic
+
+#### Comparison
+
+#### Logical
+
+#### Other core operators
+
+| Operator | Description | Example | Output |
+|----------|-------------|---------|--------|
+| ` <- ` or ` = ` | Assignment operator | `x <- 5` or `x = 5` | Assigns the value `5` to the variable `x` |
+| ` : ` | Create a sequence of integers | `1:5` | `c(1, 2, 3, 4, 5)` |
+| ` [ ] ` | Subset elements of a vector, list, or data frame by position or name | `list(first = 1, second = 2)[2]` | `> $second > [1] 2` |
+| ` [[ ]] ` | Extract a single element from a list by position or name | `list(first = 1, second = 2)[[2]]` | `2` |
+| ` $ ` | Extract a single element from a list or data frame by name | `list(first = 1, second = 2)$second` | `2` |
+| ` |> ` or ` %>% ` | Pipe operator to pass the output of one function as the input to another | `data |> filter(condition)` | Passes `data` as the first argument to `filter()` |
+
+#### Shortcuts/wrappers
+
+
+### Comments
+
+Comments are segments of text ignored by R when it runs your code.
+The pound sign # tells R to ignore anything that follows on the same line.
+
+Use comments often to add plain-English, collaborator-friendly explanations for what your code does.
+You can temporarily comment out code if 1) you think you may delete it later or 2) there will be some cases where you want R to ignore the code (leave commented) but other times you want it to run (uncomment).
+
+
+Add long comments by starting the line with 1 or more #. For blocks of comments that span multiple lines, start every line with a #.
+
+Put a # before code to temporarily "comment it out." This code will be ignored by R until you remove the #.
+
+Comments can begin in the middle of a line. R will run everything before the # and ignore everything that follows.
+
+
+
+
 ## R data structures
 
 ### Vectors
+
+multiple scalar objects (values) stored in a particular order; values can be any data type including NA
 
 ### Lists
 
 ### Matrices
 
+multiple vector objects of a single data type stored in a particular order; combine vectors as columns (cbind()) or rows (rbind()), or distribute a vector across named rows and columns (matrix())
+
+
 ### Data frames
+
+Data frames are lists of equal-length vectors: data.frame()
+The heart <3 of R
+Vectors can use different data types
+Values within each vector (column) are the same data type
+Technically a list, but takes a tabular format (like a matrix)
+Tibbles are simplified data frames: tibble()
+Used in the tidyverse (more later)
+For our (and most) purposes, can be treated interchangeably with data frames
+
 
 ### Tibbles
 
