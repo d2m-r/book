@@ -11,8 +11,12 @@ R is built on collaboration and transparency, with a large community contributin
 The R community also works to make R accessible and functional, with extensive documentation for the language itself and its packages of functions.
 Beyond documentation, you can find a wealth of user-created resources for learning and using R, including freely available tutorials, videos, workshops, and full courses and textbooks (ahem).
 
+This chapter will introduce you to some of the most critical concepts for programming with R and give you enough basic knowledge to get started writing and running R code without getting bogged down in the weeds of technical details. Some of what you'll find here is intentionally a bit shortcut-y. We'll go into more depth on many of these topics in later chapters.
+
 <!-- this should be a callout/box instead of a subsection -->
 #### R vs. Python
+
+<!-- Make this a callout or other box, not part of the main text -->
 
 Both R and Python are popular choices for statistical analysis and visualization in research, and the two have a lot in common.
 They are both free, open-source languages with large communities and extensive libraries of functions. 
@@ -65,7 +69,7 @@ You have to bring into existence the players, the script, and the stage, but als
 In R, if you want to see a graph of the relationship between how much cheese an individual eats and whether or not they are a magician, you have to create that world with objects -- the *environment*. 
 The variables "how much cheese" and "is magician?" are objects. The rows, columns, and values that make up a table of data are objects. Those objects are all inside of an object that is the table itself. The calculation of the association between the two variables is an object. The graph that visualizes the relationship is an object. The axis labels on the plot object are objects...
 
-What you need to know: 
+**WYNTKN:**
 
 1. R works by doing stuff to stuff. 
 2. So "stuff" has to exist.
@@ -84,7 +88,7 @@ For each example I gave for natural language above, I can think of at least one 
 
 While programming languages are nowhere near as complex and dynamic as natural languages, you can think about programming syntax as using the same kinds of building blocks.
 
-### Environments
+### Environments {#sec-r-basics-environments}
 
 Your R *environment* is the collection of objects that exist in your R session at any given time. 
 When you start a new R session, your environment is empty.
@@ -138,7 +142,7 @@ best_game <- paste(best_game, second_word)
 If variables are nouns, *functions* are the verbs of R syntax.
 Functions take stuff and do stuff to it.
 
-You can recognize a function in R as a word(ish) followed by `()`: `mean`, `filter()`, `ggplot()`.
+You can recognize a function in R as a word(ish thing) followed by `()`: `mean()`, `filter()`, `ggplot()`.
 
 A function is an action itself -- working, eating, procrastinating, voting -- which exists conceptually on its own just fine.
 Calculating a mean, filtering to a subset of data, mapping data to a plot -- all sensible and understandable on their own, but not necessarily implementable as is.
@@ -148,7 +152,7 @@ These are called *arguments*, and can be values, variables, or even other functi
 
 When you pass an argument to a function (i.e., you include it in the parentheses), the function does the action to the argument(s) and *returns* the result.
 
-We'll talk more about arguments in @sec-programming-functions. For now, **YNTK:**
+We'll talk more about arguments in @sec-programming-functions. For now, **WYNTK:**
 
 1. Functions take 0 or more arguments.
 2. Arguments can be required or optional.
@@ -251,7 +255,7 @@ For our purposes, we don't need to worry about complex and raw data types. *Comp
 
 Aside from these 6 "base" data types, we commonly talk about a few other kinds of things using the same kind of language we use to talk about data types, including factors, dates, and date-times.
 
-Here's a table summarizing the 3 R base data types we use frequently and the 4 honorary ones:
+Here's a table summarizing the 4 R base data types we use frequently and the 3 honorary ones:
 
 | Data type | Description | Example |
 |-----------|-------------|---------|
@@ -285,7 +289,7 @@ See if you can figure out what kind of data is being returned with `class()` by 
 
 *Numeric* variables are, unsurprisingly, numbers. 
 Basically any number that you can treat like a number.
-If you added 0 to it, would it equal itself? If so, it's numeric. (As opposed to a string that looks like a number, like `"100"`. Can't add 0 to that, and if you did, it would probably be something like concatenation: `"1000"`.)
+If you added 0 to it, would it equal itself? If so, it's numeric. (As opposed to a string that looks like a number, like `"100"`. Can't add 0 to that. If you had to find a way to force it, it would probably be something like concatenation: `"1000"`.)
 
 Create a numeric variable by assigning a number made up of digits, decimals, and/or negative signs to a variable name:
 

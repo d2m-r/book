@@ -1,4 +1,17 @@
+# Notes
+
+Random thoughts and things to find places for...
+
+1. setting seeds
+    1. maybe part of the solving problems chapter?
+    2. or the R programming chapter?
+    3. or the setup chapter? idk but it should be somewhere
+2. dates and times -- is it worth dedicating time to lubridate?
+
+
 # Chapter Organization
+
+## Part I: Data Manipulation and Analysis with R
 
 - Introduction `intro.qmd`
 - Solving Problems `solving-problems.qmd`
@@ -23,7 +36,8 @@
     - simple visualization with ggplot2
     - simple summary statistics
     
-  
+## Part II: Data Visualization and Reporting with R
+ 
 ## Appendices
 
 - Glossary
