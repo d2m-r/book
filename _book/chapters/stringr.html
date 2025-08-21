@@ -74,7 +74,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-626149efe8f5d16e1d391ba177679bf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-87496c5a4dc3146df3c5dc9468277ae6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -304,7 +304,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>You can use either single or double quotes to create strings in R. On your end, it’s just a matter of preference, though I recommend using double quotes for consistency.</p>
 <section id="sec-escaping-characters" class="level3" data-number="10.1.1">
 <h3 data-number="10.1.1" class="anchored" data-anchor-id="sec-escaping-characters"><span class="header-section-number">10.1.1</span> Escaping characters</h3>
-<p>What happens when you need to include a single quote in a single quoted string (or double in double)? You can do this by <em>escaping</em> the quote character with a backslash <code>\</code>. We talked a little about escaping in <a href="r-programming.html#sec-regex" class="quarto-xref"><span>Section 7.4</span></a> when we introduced regular expressions, and escaping in a string is really the same thing. When R sees the backslash, it knows to treat the next character as a literal character and part of the ongoing string rather than a functional R character. In this case, <code>\'</code> or <code>\"</code> tells R that the quote should not do its usual job of ending the string.</p>
+<p>What happens when you need to include a single quote in a single quoted string (or double in double)? You can do this by <em>escaping</em> the quote character with a backslash <code>\</code>. We talked a little about escaping in <a href="r-programming.html#sec-regex" class="quarto-xref"><span>Section 7.5</span></a> when we introduced regular expressions, and escaping in a string is really the same thing. When R sees the backslash, it knows to treat the next character as a literal character and part of the ongoing string rather than a functional R character. In this case, <code>\'</code> or <code>\"</code> tells R that the quote should not do its usual job of ending the string.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>escaped_single_quote <span class="ot">&lt;-</span> <span class="st">'This string uses a single quote: </span><span class="sc">\'</span><span class="st">'</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>escaped_double_quote <span class="ot">&lt;-</span> <span class="st">"This string uses a double quote: </span><span class="sc">\"</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Ok, this is going to get weird for a minute so bear with me. Try running the code above, then view each stored variable:</p>

@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -40,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-626149efe8f5d16e1d391ba177679bf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-87496c5a4dc3146df3c5dc9468277ae6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -200,31 +234,34 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#essential-concepts" id="toc-essential-concepts" class="nav-link active" data-scroll-target="#essential-concepts"><span class="header-section-number">7.1</span> Essential concepts</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">7.1</span> Overview</a></li>
+  <li><a href="#essential-concepts" id="toc-essential-concepts" class="nav-link" data-scroll-target="#essential-concepts"><span class="header-section-number">7.2</span> Essential concepts</a>
   <ul class="collapse">
-  <li><a href="#object-assignment" id="toc-object-assignment" class="nav-link" data-scroll-target="#object-assignment"><span class="header-section-number">7.1.1</span> Object assignment</a></li>
-  <li><a href="#indexing-and-subsetting-with" id="toc-indexing-and-subsetting-with" class="nav-link" data-scroll-target="#indexing-and-subsetting-with"><span class="header-section-number">7.1.2</span> Indexing and subsetting with [ ] &amp; $</a></li>
-  <li><a href="#more-base-r-essentials" id="toc-more-base-r-essentials" class="nav-link" data-scroll-target="#more-base-r-essentials"><span class="header-section-number">7.1.3</span> (more base R essentials)</a></li>
+  <li><a href="#object-assignment" id="toc-object-assignment" class="nav-link" data-scroll-target="#object-assignment"><span class="header-section-number">7.2.1</span> Object assignment</a></li>
+  <li><a href="#indexing-and-subsetting-with" id="toc-indexing-and-subsetting-with" class="nav-link" data-scroll-target="#indexing-and-subsetting-with"><span class="header-section-number">7.2.2</span> Indexing and subsetting with [ ] &amp; $</a></li>
+  <li><a href="#seeds-and-randomization" id="toc-seeds-and-randomization" class="nav-link" data-scroll-target="#seeds-and-randomization"><span class="header-section-number">7.2.3</span> Seeds and randomization</a></li>
+  <li><a href="#more-base-r-essentials" id="toc-more-base-r-essentials" class="nav-link" data-scroll-target="#more-base-r-essentials"><span class="header-section-number">7.2.4</span> (more base R essentials)</a></li>
   </ul></li>
-  <li><a href="#sec-programming-functions" id="toc-sec-programming-functions" class="nav-link" data-scroll-target="#sec-programming-functions"><span class="header-section-number">7.2</span> Functions in R</a>
+  <li><a href="#sec-programming-functions" id="toc-sec-programming-functions" class="nav-link" data-scroll-target="#sec-programming-functions"><span class="header-section-number">7.3</span> Functions in R</a>
   <ul class="collapse">
-  <li><a href="#function-arguments-and-return-values" id="toc-function-arguments-and-return-values" class="nav-link" data-scroll-target="#function-arguments-and-return-values"><span class="header-section-number">7.2.1</span> Function arguments and return values</a></li>
-  <li><a href="#writing-functions" id="toc-writing-functions" class="nav-link" data-scroll-target="#writing-functions"><span class="header-section-number">7.2.2</span> Writing functions</a></li>
-  <li><a href="#scope-and-environments" id="toc-scope-and-environments" class="nav-link" data-scroll-target="#scope-and-environments"><span class="header-section-number">7.2.3</span> Scope and environments</a></li>
+  <li><a href="#function-arguments-and-return-values" id="toc-function-arguments-and-return-values" class="nav-link" data-scroll-target="#function-arguments-and-return-values"><span class="header-section-number">7.3.1</span> Function arguments and return values</a></li>
+  <li><a href="#writing-functions" id="toc-writing-functions" class="nav-link" data-scroll-target="#writing-functions"><span class="header-section-number">7.3.2</span> Writing functions</a></li>
+  <li><a href="#scope-and-environments" id="toc-scope-and-environments" class="nav-link" data-scroll-target="#scope-and-environments"><span class="header-section-number">7.3.3</span> Scope and environments</a></li>
   </ul></li>
-  <li><a href="#iteration" id="toc-iteration" class="nav-link" data-scroll-target="#iteration"><span class="header-section-number">7.3</span> Iteration</a>
+  <li><a href="#iteration" id="toc-iteration" class="nav-link" data-scroll-target="#iteration"><span class="header-section-number">7.4</span> Iteration</a>
   <ul class="collapse">
-  <li><a href="#conditional-statements" id="toc-conditional-statements" class="nav-link" data-scroll-target="#conditional-statements"><span class="header-section-number">7.3.1</span> Conditional statements</a></li>
-  <li><a href="#loops" id="toc-loops" class="nav-link" data-scroll-target="#loops"><span class="header-section-number">7.3.2</span> Loops</a></li>
+  <li><a href="#conditional-statements" id="toc-conditional-statements" class="nav-link" data-scroll-target="#conditional-statements"><span class="header-section-number">7.4.1</span> Conditional statements</a></li>
+  <li><a href="#loops" id="toc-loops" class="nav-link" data-scroll-target="#loops"><span class="header-section-number">7.4.2</span> Loops</a></li>
   </ul></li>
-  <li><a href="#sec-regex" id="toc-sec-regex" class="nav-link" data-scroll-target="#sec-regex"><span class="header-section-number">7.4</span> Regular expressions</a>
+  <li><a href="#sec-regex" id="toc-sec-regex" class="nav-link" data-scroll-target="#sec-regex"><span class="header-section-number">7.5</span> Regular expressions</a>
   <ul class="collapse">
-  <li><a href="#what-is-regex-whats-the-point" id="toc-what-is-regex-whats-the-point" class="nav-link" data-scroll-target="#what-is-regex-whats-the-point"><span class="header-section-number">7.4.1</span> What is regex? What’s the point?</a></li>
-  <li><a href="#basic-syntax" id="toc-basic-syntax" class="nav-link" data-scroll-target="#basic-syntax"><span class="header-section-number">7.4.2</span> Basic syntax</a></li>
-  <li><a href="#common-use-cases" id="toc-common-use-cases" class="nav-link" data-scroll-target="#common-use-cases"><span class="header-section-number">7.4.3</span> Common use cases</a></li>
+  <li><a href="#what-is-regex-whats-the-point" id="toc-what-is-regex-whats-the-point" class="nav-link" data-scroll-target="#what-is-regex-whats-the-point"><span class="header-section-number">7.5.1</span> What is regex? What’s the point?</a></li>
+  <li><a href="#basic-syntax" id="toc-basic-syntax" class="nav-link" data-scroll-target="#basic-syntax"><span class="header-section-number">7.5.2</span> Basic syntax</a></li>
+  <li><a href="#common-use-cases" id="toc-common-use-cases" class="nav-link" data-scroll-target="#common-use-cases"><span class="header-section-number">7.5.3</span> Common use cases</a></li>
   </ul></li>
-  <li><a href="#learn-more" id="toc-learn-more" class="nav-link" data-scroll-target="#learn-more"><span class="header-section-number">7.5</span> Learn More</a></li>
-  <li><a href="#guided-exercise-create-a-hello_world-function" id="toc-guided-exercise-create-a-hello_world-function" class="nav-link" data-scroll-target="#guided-exercise-create-a-hello_world-function"><span class="header-section-number">7.6</span> Guided Exercise: Create a hello_world() function</a></li>
+  <li><a href="#learn-more" id="toc-learn-more" class="nav-link" data-scroll-target="#learn-more"><span class="header-section-number">7.6</span> Learn More</a></li>
+  <li><a href="#guided-exercise-create-a-hello_world-function" id="toc-guided-exercise-create-a-hello_world-function" class="nav-link" data-scroll-target="#guided-exercise-create-a-hello_world-function"><span class="header-section-number">7.7</span> Guided Exercise: Create a hello_world() function</a></li>
+  <li><a href="#guided-exercise-the-programmers-groceries" id="toc-guided-exercise-the-programmers-groceries" class="nav-link" data-scroll-target="#guided-exercise-the-programmers-groceries"><span class="header-section-number">7.8</span> Guided Exercise: The programmer’s groceries</a></li>
   </ul>
 </nav>
     </div>
@@ -250,77 +287,189 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="essential-concepts" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="essential-concepts"><span class="header-section-number">7.1</span> Essential concepts</h2>
-<section id="object-assignment" class="level3" data-number="7.1.1">
-<h3 data-number="7.1.1" class="anchored" data-anchor-id="object-assignment"><span class="header-section-number">7.1.1</span> Object assignment</h3>
+<section id="overview" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">7.1</span> Overview</h2>
+<p>In this chapter we will go into a bit more depth on some of what we covered in <span class="quarto-unresolved-ref">?sec-r-language-basics</span>, and introduce some more complicated programming concepts you’re likely to need as a social sciences researcher.</p>
 </section>
-<section id="indexing-and-subsetting-with" class="level3" data-number="7.1.2">
-<h3 data-number="7.1.2" class="anchored" data-anchor-id="indexing-and-subsetting-with"><span class="header-section-number">7.1.2</span> Indexing and subsetting with [ ] &amp; $</h3>
+<section id="essential-concepts" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="essential-concepts"><span class="header-section-number">7.2</span> Essential concepts</h2>
+<section id="object-assignment" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="object-assignment"><span class="header-section-number">7.2.1</span> Object assignment</h3>
+<p>In R we create variables by assigning a value to a name with the assignment operator <code>&lt;-</code>. Technically you can use <code>=</code> to assign a value to a variable, but you really shouldn’t; <code>&lt;-</code> <a href="https://www.r-bloggers.com/2014/01/difference-between-assignment-operators-in-r/">is the preferred assignment operator in R</a>.</p>
 </section>
-<section id="more-base-r-essentials" class="level3" data-number="7.1.3">
-<h3 data-number="7.1.3" class="anchored" data-anchor-id="more-base-r-essentials"><span class="header-section-number">7.1.3</span> (more base R essentials)</h3>
+<section id="indexing-and-subsetting-with" class="level3" data-number="7.2.2">
+<h3 data-number="7.2.2" class="anchored" data-anchor-id="indexing-and-subsetting-with"><span class="header-section-number">7.2.2</span> Indexing and subsetting with [ ] &amp; $</h3>
+<ul>
+<li>use <code>:</code> to create a vector of integers beginning with one number and ending with another
+<ul>
+<li><code>1:5</code> is equivalent to <code>c(1, 2, 3, 4, 5)</code></li>
+</ul></li>
+<li>use <code>[</code> and <code>]</code> to select elements of a vector, list, or data frame by position or name
+<ul>
+<li><code>c(1, 10, 3, 1000, 2)[4]</code> returns the fourth element of the vector, <code>1000</code></li>
+</ul></li>
+<li>use <code>,</code> to separate row and column indices when selecting from a data frame or matrix
+<ul>
+<li><code>mtcars[1, ]</code> returns the first row of the <code>mtcars</code> data frame</li>
+<li><code>mtcars[, 1]</code> returns the first column of the <code>mtcars</code> data frame</li>
+<li><code>mtcars[1, 1]</code> returns the value in the first row and first column of the <code>mtcars</code> data frame</li>
+</ul></li>
+<li>use <code>[[</code> and <code>]]</code> to select a single list element by position or name
+<ul>
+<li><code>my_list &lt;- list(first = 1, second = 2); my_list[[2]]</code> returns <code>2</code></li>
+</ul></li>
+<li>use <code>$</code> to select a list element by name
+<ul>
+<li><code>mtcars$mpg</code> returns the <code>mpg</code> column of the <code>mtcars</code> data frame</li>
+<li><code>my_list &lt;- list(first = 1, second = 2); my_list$second</code> returns <code>2</code></li>
+</ul></li>
+</ul>
+<p>How are <code>[</code> and <code>[[</code> different? <code>[</code> always returns an object of the same type as the original object, while <code>[[</code> returns a single element of the object. This starts to matter when you’re working with complex data structures that store multiple data types, like lists, data frames, and model output.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a list with two elements: a numeric vector and a character vector</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>mixed_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">b =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you print the list, you’ll see both elements:</p>
+<pre><code>&gt; mixed_list
+$a
+[1] 1 2 3 4 5
+
+$b
+[1] "a" "b" "c" "d" "e"</code></pre>
+<p>Using single brackets to select the first element returns a list with one element (the numeric vector):</p>
+<pre><code>&gt; mixed_list[1]
+$a
+[1] 1 2 3 4 5
+
+&gt; class(mixed_list[1])
+[1] "list"</code></pre>
+<p>Using double brackets to select the first element returns just the numeric vector itself:</p>
+<pre><code>&gt; mixed_list[[1]]
+[1] 1 2 3 4 5
+
+&gt; class(mixed_list[[1]])
+[1] "integer"</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a gradebook dataframe</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>spanish101 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Annie"</span>, <span class="st">"Troy"</span>, <span class="st">"Abed"</span>, <span class="st">"Kevin"</span>),</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">20</span><span class="sc">:</span><span class="dv">22</span>, <span class="dv">99</span>),</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">score =</span> <span class="fu">c</span>(<span class="dv">101</span>, <span class="dv">69</span>, <span class="dv">90</span>, <span class="sc">-</span><span class="dv">10</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>spanish101[<span class="dv">3</span>, <span class="st">"score"</span>]  <span class="co"># returns 90</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>spanish101<span class="sc">$</span>score[<span class="dv">1</span>]     <span class="co"># returns 101</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>spanish101[spanish101<span class="sc">$</span>name <span class="sc">==</span> <span class="st">"Troy"</span>, <span class="st">"age"</span>]  <span class="co"># returns 21</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="seeds-and-randomization" class="level3" data-number="7.2.3">
+<h3 data-number="7.2.3" class="anchored" data-anchor-id="seeds-and-randomization"><span class="header-section-number">7.2.3</span> Seeds and randomization</h3>
+</section>
+<section id="more-base-r-essentials" class="level3" data-number="7.2.4">
+<h3 data-number="7.2.4" class="anchored" data-anchor-id="more-base-r-essentials"><span class="header-section-number">7.2.4</span> (more base R essentials)</h3>
 </section>
 </section>
-<section id="sec-programming-functions" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="sec-programming-functions"><span class="header-section-number">7.2</span> Functions in R</h2>
+<section id="sec-programming-functions" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="sec-programming-functions"><span class="header-section-number">7.3</span> Functions in R</h2>
 <p>We introduced functions in <span class="quarto-unresolved-ref">?sec-function-basics</span>, and you’ll have seen them used throughout course materials so far. There’s just no sensible way to talk about anything in R without implicitly using some functions, so hopefully by now you’ve picked up on the gist of how they work. You can honestly get pretty just using functions without understanding them, but obviously you can get a lot farther if you do, so let’s talk about them a bit more.</p>
 <p>Here’s a thing that is definitely totally hypothetical and has never happened:</p>
 <blockquote class="blockquote">
 <p>I ignore my work and start playing my favorite video game.</p>
 </blockquote>
 <p>“Ignoring” and “playing” are functions, and “my work” and “my favorite video game” are the objects those functions are acting on.</p>
-<section id="function-arguments-and-return-values" class="level3" data-number="7.2.1">
-<h3 data-number="7.2.1" class="anchored" data-anchor-id="function-arguments-and-return-values"><span class="header-section-number">7.2.1</span> Function arguments and return values</h3>
+<section id="function-arguments-and-return-values" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="function-arguments-and-return-values"><span class="header-section-number">7.3.1</span> Function arguments and return values</h3>
 <p>When you want to do the action (or more analogous to R, when you want to tell someone to do the action), you’ll often want to add some more information to specify what exactly you want to do the action to or how to do it.</p>
 </section>
-<section id="writing-functions" class="level3" data-number="7.2.2">
-<h3 data-number="7.2.2" class="anchored" data-anchor-id="writing-functions"><span class="header-section-number">7.2.2</span> Writing functions</h3>
-</section>
-<section id="scope-and-environments" class="level3" data-number="7.2.3">
-<h3 data-number="7.2.3" class="anchored" data-anchor-id="scope-and-environments"><span class="header-section-number">7.2.3</span> Scope and environments</h3>
-</section>
-</section>
-<section id="iteration" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="iteration"><span class="header-section-number">7.3</span> Iteration</h2>
-<section id="conditional-statements" class="level3" data-number="7.3.1">
-<h3 data-number="7.3.1" class="anchored" data-anchor-id="conditional-statements"><span class="header-section-number">7.3.1</span> Conditional statements</h3>
-<section id="if-else" class="level4" data-number="7.3.1.1">
-<h4 data-number="7.3.1.1" class="anchored" data-anchor-id="if-else"><span class="header-section-number">7.3.1.1</span> if else</h4>
-</section>
-<section id="case_when" class="level4" data-number="7.3.1.2">
-<h4 data-number="7.3.1.2" class="anchored" data-anchor-id="case_when"><span class="header-section-number">7.3.1.2</span> case_when</h4>
+<section id="writing-functions" class="level3" data-number="7.3.2">
+<h3 data-number="7.3.2" class="anchored" data-anchor-id="writing-functions"><span class="header-section-number">7.3.2</span> Writing functions</h3>
+<!-- box/callout -->
+<section id="anonymous-functions" class="level4" data-number="7.3.2.1">
+<h4 data-number="7.3.2.1" class="anchored" data-anchor-id="anonymous-functions"><span class="header-section-number">7.3.2.1</span> Anonymous functions</h4>
+<p>An <em>anonymous function</em> is a function that is defined without being assigned to a name. This is useful for short, one-off functions that you don’t need to reuse elsewhere in your code. You’re most likely to need anonymous functions when you’re using functions that take other functions as arguments, like <code>sapply()</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. For example:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use an anonymous function to square each element of a vector</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>square_them_all <span class="ot">&lt;-</span> <span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(square_them_all)  <span class="co"># returns: [1]  1  4  9 16 25</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <code>sapply()</code> function takes a function as an argument and applies it to each element of a vector or list (in this case, the series of numbers from 1 to 5). We define the function we want to apply (in this case, squaring the input <code>x</code>) directly within the call to <code>sapply()</code>, without giving it a name. The syntax for anonymous functions is simplified: <code>function(list, of, arguments) theFunctionActions</code>.</p>
+<!-- /box/callout -->
 </section>
 </section>
-<section id="loops" class="level3" data-number="7.3.2">
-<h3 data-number="7.3.2" class="anchored" data-anchor-id="loops"><span class="header-section-number">7.3.2</span> Loops</h3>
-<section id="for-loops" class="level4" data-number="7.3.2.1">
-<h4 data-number="7.3.2.1" class="anchored" data-anchor-id="for-loops"><span class="header-section-number">7.3.2.1</span> for loops</h4>
+<section id="scope-and-environments" class="level3" data-number="7.3.3">
+<h3 data-number="7.3.3" class="anchored" data-anchor-id="scope-and-environments"><span class="header-section-number">7.3.3</span> Scope and environments</h3>
+<p>We introduced the idea of your <em>environment</em> in <a href="r-language-basics.html#sec-r-basics-environments" class="quarto-xref"><span>Section 5.2.1</span></a>. Before writing functions, we need to talk about environment<em>s</em> plural.</p>
+<p>Environments have <em>scopes.</em> If you look at your environment pane, notice that all these objects are in your <em>global environment.</em> This is the top-level environment that contains all of the objects you create in your R session. Anything existing in your global environment can be referenced from anywhere in your R session.</p>
+<p>If you click the dropdown that says “Global Environment,” you’ll see a list of environments associated with any packages you’ve loaded in your R session. You can explore these <em>package environments</em> to see what their values, functions, and example datasets look like behind the scenes.</p>
+<p>The other scope of environment you’ll come across is the <em>function environment</em>. When you call a function, R creates a new environment for that function to run in. Anything defined within that function environment is local to that function and cannot be accessed from outside the function. When the function finishes running, its environment is destroyed, and any objects created within it are lost unless they are explicitly returned by the function.</p>
+<p>When you write your own functions, you’ll create variables that exist only within the scope of that function’s environment. Functions that you run <em>within that function</em> can access these function-scoped variables, but nothing outside the function can.</p>
+<p>For example:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>add_y <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    y <span class="ot">&lt;-</span> <span class="dv">2</span>  <span class="co"># 'y' is created in the function environment</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(<span class="st">"Adding"</span>, x, <span class="st">"and"</span>, y, <span class="st">"makes"</span>, x <span class="sc">+</span> y)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">add_y</span>(<span class="dv">3</span>) <span class="co"># returns: [1] "Adding 3 and 2 makes 5"</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">+</span> y <span class="co"># Error: object 'y' not found</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We defined <code>y</code> inside the function <code>add_y()</code>’s local environment. As long as we’re inside that function, we can use <code>y</code> just fine. We can print <code>y</code> and do math with it using the value we passed to <code>x</code>.</p>
+<p>If we try to do the same math outside the function, we get an error. <code>y</code> doesn’t exist in our global environment, so R can’t find it. You can confirm this by looking in your environment pane; <code>y</code> won’t be there.</p>
+<p>Scoping is important in the other direction as well. If a function tries to use a variable that isn’t defined within its own environment, R will look for that variable in the global environment. For example:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="dv">5</span>  <span class="co"># 'z' is created in the global environment</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>multiply_by_z <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(<span class="st">"Multiplying"</span>, x, <span class="st">"by"</span>, z, <span class="st">"makes"</span>, x <span class="sc">*</span> z)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">multiply_by_z</span>(<span class="dv">3</span>) <span class="co"># returns: [1] "Multiplying 3 by 5 makes 15"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Since we defined <code>z</code> globally (take a look in your environment pane to see it), we could reference it within the function without to explicitly defining there or passing it as an argument. If we hadn’t defined <code>z</code> globally, calling <code>multiply_by_z(3)</code> would have resulted in an error because <code>z</code> wouldn’t exist in either the function’s local environment or the global environment.</p>
+<p>Although this works, you can probably see why it’s not a great idea to rely on global variables within functions. For one thing, it means you need to redefine those global variables every time you start a new R session. For another, it just kind of defeats the point of functions! Functions are supposed to be self-contained and reusable across contexts. Any objects that a function needs to work should be defined within the function or passed to it as arguments so it can work independently of your global environment.</p>
 </section>
-<section id="while-loops" class="level4" data-number="7.3.2.2">
-<h4 data-number="7.3.2.2" class="anchored" data-anchor-id="while-loops"><span class="header-section-number">7.3.2.2</span> while loops</h4>
+</section>
+<section id="iteration" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="iteration"><span class="header-section-number">7.4</span> Iteration</h2>
+<section id="conditional-statements" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="conditional-statements"><span class="header-section-number">7.4.1</span> Conditional statements</h3>
+<section id="if-else" class="level4" data-number="7.4.1.1">
+<h4 data-number="7.4.1.1" class="anchored" data-anchor-id="if-else"><span class="header-section-number">7.4.1.1</span> if else</h4>
+</section>
+<section id="case_when" class="level4" data-number="7.4.1.2">
+<h4 data-number="7.4.1.2" class="anchored" data-anchor-id="case_when"><span class="header-section-number">7.4.1.2</span> case_when</h4>
+</section>
+</section>
+<section id="loops" class="level3" data-number="7.4.2">
+<h3 data-number="7.4.2" class="anchored" data-anchor-id="loops"><span class="header-section-number">7.4.2</span> Loops</h3>
+<section id="for-loops" class="level4" data-number="7.4.2.1">
+<h4 data-number="7.4.2.1" class="anchored" data-anchor-id="for-loops"><span class="header-section-number">7.4.2.1</span> for loops</h4>
+</section>
+<section id="while-loops" class="level4" data-number="7.4.2.2">
+<h4 data-number="7.4.2.2" class="anchored" data-anchor-id="while-loops"><span class="header-section-number">7.4.2.2</span> while loops</h4>
 </section>
 </section>
 </section>
-<section id="sec-regex" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="sec-regex"><span class="header-section-number">7.4</span> Regular expressions</h2>
-<section id="what-is-regex-whats-the-point" class="level3" data-number="7.4.1">
-<h3 data-number="7.4.1" class="anchored" data-anchor-id="what-is-regex-whats-the-point"><span class="header-section-number">7.4.1</span> What is regex? What’s the point?</h3>
+<section id="sec-regex" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="sec-regex"><span class="header-section-number">7.5</span> Regular expressions</h2>
+<section id="what-is-regex-whats-the-point" class="level3" data-number="7.5.1">
+<h3 data-number="7.5.1" class="anchored" data-anchor-id="what-is-regex-whats-the-point"><span class="header-section-number">7.5.1</span> What is regex? What’s the point?</h3>
 </section>
-<section id="basic-syntax" class="level3" data-number="7.4.2">
-<h3 data-number="7.4.2" class="anchored" data-anchor-id="basic-syntax"><span class="header-section-number">7.4.2</span> Basic syntax</h3>
+<section id="basic-syntax" class="level3" data-number="7.5.2">
+<h3 data-number="7.5.2" class="anchored" data-anchor-id="basic-syntax"><span class="header-section-number">7.5.2</span> Basic syntax</h3>
 </section>
-<section id="common-use-cases" class="level3" data-number="7.4.3">
-<h3 data-number="7.4.3" class="anchored" data-anchor-id="common-use-cases"><span class="header-section-number">7.4.3</span> Common use cases</h3>
+<section id="common-use-cases" class="level3" data-number="7.5.3">
+<h3 data-number="7.5.3" class="anchored" data-anchor-id="common-use-cases"><span class="header-section-number">7.5.3</span> Common use cases</h3>
 </section>
 </section>
-<section id="learn-more" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="learn-more"><span class="header-section-number">7.5</span> Learn More</h2>
+<section id="learn-more" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="learn-more"><span class="header-section-number">7.6</span> Learn More</h2>
 </section>
-<section id="guided-exercise-create-a-hello_world-function" class="level2" data-number="7.6">
-<h2 data-number="7.6" class="anchored" data-anchor-id="guided-exercise-create-a-hello_world-function"><span class="header-section-number">7.6</span> Guided Exercise: Create a hello_world() function</h2>
+<section id="guided-exercise-create-a-hello_world-function" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="guided-exercise-create-a-hello_world-function"><span class="header-section-number">7.7</span> Guided Exercise: Create a hello_world() function</h2>
+</section>
+<section id="guided-exercise-the-programmers-groceries" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="guided-exercise-the-programmers-groceries"><span class="header-section-number">7.8</span> Guided Exercise: The programmer’s groceries</h2>
 
 
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Run <code>?sapply</code> in your R console to see the documentation for this function.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->

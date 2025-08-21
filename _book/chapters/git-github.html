@@ -40,7 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-626149efe8f5d16e1d391ba177679bf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-87496c5a4dc3146df3c5dc9468277ae6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -255,13 +255,27 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<!-- As of 6/28/25 -- all text pulled straight from W25 slides as a base -->
 <section id="overview" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Overview</h1>
 <p>The point of version control. What <em>not</em> to do.</p>
 <section id="git" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="git"><span class="header-section-number">5.1</span> Git</h2>
+<p>In brief, a (distributed) version control system for text-based documents, meaning: It records the history of each change that you/others submit With each submission it records a commit message, timestamp, and contributor … You are still responsible for submitting the change to the git record! Invented in 2005 by Linus Torvald as part of Linux development. It is free and open-source, and widely used by software developers (and increasingly by other professionals, including scientists) It can be installed and run locally and completely offline in a terminal or in a GUI software of your choice (e.g., these). Git is very powerful in combination with GitHub, which is a service that facilitates online storage and sharing of your documents. Still highly useful for single users.</p>
+<p>Version control: History of changes Records a commit message with each change, along with timestamp and contributor Requires users to record (commit) changes, submit (push) changes, and accept (pull) changes</p>
+<p>Open-source with diverse workflow uses: Widely used by software developers for 15+ years Increasingly used by professionals in both academia and industry Can run locally and offline via Terminal (command line)</p>
+<p>With GitHub: Online storage, sharing, and version control with Git Designed to facilitate collaboration, but still useful for individuals</p>
 <section id="workflow" class="level3" data-number="5.1.1">
 <h3 data-number="5.1.1" class="anchored" data-anchor-id="workflow"><span class="header-section-number">5.1.1</span> Workflow</h3>
+<p>explain relationship between rstudio projects and git repos caveat that we’re talking about projects+git as a default combo, but that’s just for this class</p>
+<p>Cardinal rules:</p>
+<ol type="1">
+<li>Pull when you start a new R session.</li>
+<li>Commit frequently as you work.</li>
+<li>Push when you get up from your computer for any reason.</li>
+</ol>
+<p>Create a GitHub repo and corresponding R Project that are always synced</p>
+<p>Files: README.md: project overview, repo structure, to-do list, etc. .gitignore: starting from the R .gitignore template yourManuscript.qmd: the home of your eventual publication references.bib: a plain-text file containing all the BibTeX entries cited in your manuscript yourCitationStyle.csl: the script used to format in-text and bibliography citations when knitting (not needed if using papaja) Folders/directories: /localonly: only present in your local R Project directory, listed in your .gitignore and so never synced to github /data: .csv/tabular data files for all raw or intermediate datasets read into in your .qmd, optional /raw subfolder for raw data read (only) into unsourced R scripts /source: .R scripts to be called in an early chunk of your .qmd, e.g., stylistic preferences, functions, minor data wrangling /images: exported figures and any image files to read-in to your R Markdown manuscript /sections: ONLY for multi-chapter publications (e.g., dissertations), where each chapter requires a separate .qmd that can run independently</p>
 </section>
 <section id="git-lingo" class="level3" data-number="5.1.2">
 <h3 data-number="5.1.2" class="anchored" data-anchor-id="git-lingo"><span class="header-section-number">5.1.2</span> Git lingo</h3>
@@ -298,11 +312,22 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="5.2" class="anchored" data-anchor-id="repo-structure"><span class="header-section-number">5.2</span> Repo structure</h2>
 <section id="what-does-and-does-not-go-in-a-repo" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="what-does-and-does-not-go-in-a-repo"><span class="header-section-number">5.2.1</span> What does and does not go in a repo?</h3>
+<p>Your R Project is essentially a mirror of your GitHub repo It may also contain some files that don’t get uploaded to GitHub Stored on your local hard drive DO NOT use any location that syncs to cloud storage! Your project and repo both include: a README.md file with basic repo documentation a .gitignore file that specifies what shouldn’t get synced .R (R script) files .qmd (R Markdown) files .csv files or other minimal, tabular data</p>
 </section>
 <section id="top-level-essentials" class="level3" data-number="5.2.2">
 <h3 data-number="5.2.2" class="anchored" data-anchor-id="top-level-essentials"><span class="header-section-number">5.2.2</span> Top-level essentials</h3>
-<pre><code>    1. README
-    2. .gitignore</code></pre>
+<pre><code>    1. README </code></pre>
+<p>Simple markdown document (.md) What you see rendered on a repo’s GitHub page Describes the repo’s purpose and function</p>
+<p>Simple markdown document (.md) What you see rendered on a repo’s GitHub page Can do lots of things, but should at a minimum describe: Purpose of the repo Dataset(s) Repo structure</p>
+<!-- images of a readme in md and github rendered forms -->
+<pre><code>    2. .gitignore</code></pre>
+<p>Plain text file w/out extension List of files &amp; folders that should be excluded from all git processes Allows you to protect sensitive data</p>
+<p>What is it? A text document that lets you keep some things just on your computer, not uploaded to GitHub. Why does it start with a period? It’s marking that it’s a hidden file. For the most part, you never need to interact with hidden files (hence the hiding), but .gitignore is an important exception.</p>
+<p>Plain text file w/out extension Files &amp; folders that should be excluded from all git processes Matched on strings in file/folder names, including wildcard characters and simplified regex View documentation</p>
+<!-- image of R gitignore template -->
+<p>Not everything can or should be online. Private, sensitive, and protected data should be stored locally. Files generated by your scripts are redundant. Very large files can exceed upload limits and/or cause RStudio to hang. Upload directly through GitHub or use GitHub Desktop for pushes that RStudio can’t handle.</p>
+<p>Private, sensitive, and protected data should be stored locally and only pushed when you are confident it is in an ethically shareable state</p>
+<p>Optionally start from a template Use informative #comments Media files (e.g., .wav, .mpg) tend to be very large, often sensitive data Compiled files (e.g., .doc, .pdf, .png) really big, regenerated when you run your code A dedicated “localonly” folder for stuff you want to ignore that the .gitignore might not otherwise catch – all your sensitive data should be in here Meta-process files “knitting” creates temporary files as it turns your .Rmd into a pdf document that serve no purpose once the knitting has completed e.g., .log, .zip “Pretty” files &amp; specialized files powerpoints, photos no one needs your .bdl*, .ear**, and .mgh files</p>
 </section>
 <section id="the-rest-of-your-stuff" class="level3" data-number="5.2.3">
 <h3 data-number="5.2.3" class="anchored" data-anchor-id="the-rest-of-your-stuff"><span class="header-section-number">5.2.3</span> The rest of your stuff</h3>
@@ -312,6 +337,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="example-my-go-to-repo-structure" class="level3" data-number="5.2.5">
 <h3 data-number="5.2.5" class="anchored" data-anchor-id="example-my-go-to-repo-structure"><span class="header-section-number">5.2.5</span> Example: My go-to repo structure</h3>
+<p>Files: README.md: project overview, repo structure, to-do list, etc. .gitignore: starting from the R .gitignore template yourManuscript.Rmd: the home of your eventual publication references.bib: a plain-text file containing all the BibTeX entries cited in your manuscript yourCitationStyle.csl: the script used to format in-text and bibliography citations when knitting (not needed if using papaja) Folders/directories: /localonly: only present in your local R Project directory, listed in your .gitignore and so never synced to github /data: .csv/tabular data files for all raw or intermediate datasets read into in your .Rmd, optional /raw subfolder for raw data read (only) into unsourced R scripts /source: .R scripts to be called in an early chunk of your .qmd, e.g., stylistic preferences, functions, minor data wrangling /images: exported figures and any image files to read-in to your R Markdown manuscript /sections: ONLY for multi-chapter publications (e.g., dissertations), where each chapter requires a separate .Rmd that can run independently</p>
 </section>
 </section>
 <section id="github" class="level2" data-number="5.3">
