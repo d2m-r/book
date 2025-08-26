@@ -199,8 +199,7 @@ For another, it just kind of defeats the point of functions!
 Functions are supposed to be self-contained and reusable across contexts.
 Any objects that a function needs to work should be defined within the function or passed to it as arguments so it can work independently of your global environment.
 
-
-## Iteration
+## Control flow {#sec-control-flow}
 
 ### Conditional statements
 
@@ -227,3 +226,15 @@ Any objects that a function needs to work should be defined within the function 
 ## Guided Exercise: Create a hello_world() function
 
 ## Guided Exercise: The programmer's groceries
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+ggplot(iris) +
+    aes(x = Sepal.Length, y = Sepal.Width, color = Species) +
+    geom_point() +
+    theme_minimal()
+```
+

@@ -76,10 +76,19 @@ The variables "how much cheese" and "is magician?" are objects. The rows, column
 
 ## R syntax
 
-In natural language, syntax is the system of rules that govern how words are combined to form phrases and sentences in meaningful ways. Sentence makes mixing nothing all words of at the a it something up else or mean.^[Mixing up the words of a sentence makes it mean something else or nothing at all.] 
-
 <!-- Men in tights clip of sheriff of rottingham -->
-{{< video https://www.youtube.com/embed/CKhGiFOMsS0 >}}
+<div style="float: right; max-width: 400px; margin-left: 1em;">
+  <iframe
+    width="500"
+    height="281"
+    src="https://www.youtube.com/embed/CKhGiFOMsS0"
+    frameborder="0"
+    allowfullscreen>
+  </iframe>
+</div>
+
+
+In natural language, syntax is the system of rules that govern how words are combined to form phrases and sentences in meaningful ways. Sentence makes mixing nothing all words of at the a it something up else or mean.^[Mixing up the words of a sentence makes it mean something else or nothing at all.] 
 
 Some things are nouns, some are verbs. Some verbs need objects, some don't. Some words mean more than one thing and require specification or context. Some words connect other words together. Some words don't serve a lot of functional purpose but make the sentence sound better or easier to understand. Words like pronouns can replace other words, but only after following the rules to let you do that. Some words you can omit entirely by restructuring other parts of the sentence. Some rules will technically communicate a meaning correctly, but are much more understandable if there is non-speech stuff like gestures or facial expressions to help clarify the meaning. Some rules are more flexible than others, and some are more rigid. Some rules are more important than others, and some are more about style than substance.
 
@@ -105,19 +114,22 @@ When you close RStudio, your environment is cleared, and you have to recreate an
 ### Variables
 
 *Variables* are the nouns of R syntax. 
-The read world is filled with "things," literal and abstract.
+The real world is filled with "things," literal and abstract.
 Coffee, computer, RStudio, exhaustion, education, Stardew Valley Junimo plushie, the joy of playing Stardew Valley when you should be working...
 They just kind of exist.
 I can interact with them directly, but I can't list out for you the Stardew Valley decor in my office^[And I assure you, it's a lot more than a single Junimo plush.] unless I name them.
 The Junimo is a value, and "Junimo" is the variable name I use to refer to that value.
 
-![](../images/desk.png)
+![](../images/desk.png){style="max-height: 300px; float: left; margin-right: 1em; margin-bottom: 1em;"}
 
 In R we create variables by assigning a value to a name with the assignment operator `<-`. Technically you can use `=` to assign a value to a variable, but you really shouldn't; `<-` [is the preferred assignment operator in R](https://www.r-bloggers.com/2014/01/difference-between-assignment-operators-in-r/).
 
 Once you have created a variable, you can use it in your code to refer to the value it contains, including assigning other variables.
 
+::: {style="clear: left"}
 For example:
+:::
+
 
 ```r
 the_answer <- 42
@@ -233,27 +245,42 @@ For the examples below, start with defining a vector of numeric values:
 ```r
 number_list <- c(11, 37, 42, 101, 202, 1000, 2025, -3)
 ```
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+number_list <- c(11, 37, 42, 101, 202, 1000, 2025, -3)
+```
+
 
 | Function | Description | Example | Output |
 |----------|-------------|---------|--------|
-| `round()` | Round a numeric value to a specified number of decimal places | `round(67.1988, 2)` | `67.2` |
-| `sum()`  | Calculate the sum of a numeric vector | `sum(number_list)` | `3415` |
-| `min()`  | Find the minimum value in a numeric vector | `min(number_list)` | `-3` |
-| `max()`  | Find the maximum value in a numeric vector | `max(number_list)` | `2025` |
-| `mean()` | Calculate the mean of a numeric vector | `mean(number_list)` | `426.875` |
-| `median()` | Calculate the median of a numeric vector | `median(number_list)` | `71.5` |
-| `sd()`   | Calculate the standard deviation of a numeric vector | `sd(number_list)` | `726.7457` |
-| `cor()`  | Calculate the correlation between two numeric vectors | `cor(number_list[1:4], number_list[5:8])` | `-0.2855236` |
-
+| `round()` | Round a numeric value to a specified number of decimal places | `round(67.1988, 2)` | `r round(67.1988, 2)` |
+| `sum()`  | Calculate the sum of a numeric vector | `sum(number_list)` | `r sum(number_list)` |
+| `min()`  | Find the minimum value in a numeric vector | `min(number_list)` | `r min(number_list)` |
+| `max()`  | Find the maximum value in a numeric vector | `max(number_list)` | `r max(number_list)` |
+| `mean()` | Calculate the mean of a numeric vector | `mean(number_list)` | `r mean(number_list)` |
+| `median()` | Calculate the median of a numeric vector | `median(number_list)` | `r median(number_list)` |
+| `sd()`   | Calculate the standard deviation of a numeric vector | `sd(number_list)` | `r sd(number_list)` |
+| `cor()`  | Calculate the correlation between two numeric vectors | `cor(number_list[1:4], number_list[5:8])` | `r cor(number_list[1:4], number_list[5:8])` |
 
 
 ### Data types
 
-Data you can work with in R takes one of 6 forms: numeric, integer, complex, character, logical, and raw.
+:::: {.clearfix}
+
+::: {.callout-note style="float:right; width: 50%; margin-left: 1.5em; margin-top:0px"}
+
+#### Complex and raw data
 
 For our purposes, we don't need to worry about complex and raw data types. *Complex* objects use complex (i.e. both real and imaginary $i$); *raw* objects are used to represent literal binary data. It's unlikely that as a researcher in psychology or other social sciences you will need to use these data types directly, but you can start to learn more about complex numbers in R [here](https://www.r-bloggers.com/2009/12/using-complex-numbers-in-r/) and raw data [here](https://rdrr.io/r/base/raw.html) if you're interested.
+:::
 
-Aside from these 6 "base" data types, we commonly talk about a few other kinds of things using the same kind of language we use to talk about data types, including factors, dates, and date-times.
+Data you can work with in R takes one of 6 forms: **numeric**, **integer**, complex, **character**, **logical**, and raw.
+
+Aside from these 6 "base" data types, we commonly talk about a few other kinds of things using the same kind of language we use to talk about data types, including **factors**, **dates**, and **date-times/POSIX**.
+
+::::
 
 Here's a table summarizing the 4 R base data types we use frequently and the 3 honorary ones:
 
@@ -389,9 +416,167 @@ In that chapter we'll talk a lot more about working with strings in R, including
 
 #### Logical
 
+*Logical* variables are Boolean values, meaning they can only take on one of two possible values: `TRUE` or `FALSE`.
+
+In R, logical values are written in all caps, either the whole word or the first letter:
+
+```r
+is_true <- TRUE
+is_false <- FALSE
+also_true <- T
+also_false <- F
+not_logical <- true  # Error: object 't' not found
+also_not_logical <- f  # Error: object 'f' not found
+```
+
+Logical variables are usually the result of comparison operations, which evaluate to either `TRUE` or `FALSE`:
+
+```r
+is_greater <- 5 > 3  # TRUE
+is_equal <- 5 == 5   # TRUE
+is_less <- 3 < 1     # FALSE
+is_not_equal <- 5 != 5  # FALSE
+```
+More on logical comparisons in @sec-comparison-operators.
+
+In practice, you'll usually use logical variables in the context of conditional statements and loops. More on those in @sec-control-flow. 
+
+You may also encounter logical variables directly in your data (e.g., survey data where respondents answer yes/no questions) or need to wrangle categorical data into logical variables.
+
 
 #### Factor
 
+*Factors* variables represent discrete groups or levels.
+This is the word R uses for what you may prefer to call categorical, nominal, ordinal, or discrete variables (among others).
+
+Factor variables may not be immediately distinguishable from character variables when you look over your data, but they function very differently.
+
+A character variable is a string of text, and all strings are treated as unique values -- even if they are identical.
+While R can compare two strings and determine whether they are identical:
+
+```r
+is_same <- "happy family" == "happy family"  # TRUE
+is_different <- "unhappy family" == "Unhappy Family"  # FALSE
+```
+
+it can't know whether strings are *meaningfully* identical.
+
+Converting a character variable -- or any variable with discrete values -- to a factor variable tells R that the values represent meaningful groups or levels. 
+Each unique string it detects is treated as a level of the factor variable.
+
+You've got a survey about college students' names, their breed of pet, and overall happiness on a 4-point scale (1 = horribly depressed, 2 = mostly numb, 3 = pretty ok, 4 = weirdly great):
+
+```{r}
+#| echo: true
+survey_data <- data.frame(
+  name = c( "David", "Eve", "Jamal", "Alice", "Fatima", "Grace", "Alice", "Heidi", "Bob", "Carlos", "Ivan", "Grace"),
+  pet_breed = c("dog", "none", "dog", "bird", "cat", "dog", "cat", "none", "fish", "cat", "none", "ignuana"),
+  happiness = c(3, 4, 2, 1, 3, 4, 2, 3, 1, 4, 1, 4)
+)
+
+survey_data
+```
+
+If you run `class()` on each of the columns, you'll see that `name` and `pet_breed` are character variables, while `happiness` is numeric:
+
+```r
+class(survey_data$name)        # "character"
+class(survey_data$pet_breed)   # "character"
+class(survey_data$happiness)    # "numeric"
+```
+
+It makes sense that `name` is a character variable, since names are unique strings of text.
+Even if a couple are repeated, that's just coincidence. We don't care about an effect of "name."
+
+The `pet_breed` character variable would be more appropriately handled as a factor variable, since the values represent discrete groups. David, Jamal, and Grace all have dogs -- we need to be able to treat all cases of `dog` the same way to do anything with that information.
+
+The way it's being handled right now just isn't helpful, which you can see easily by summarizing the data:
+
+```{r}
+#| echo: true
+summary(survey_data)
+```
+
+We can't learn anything about patters with pet breed here. It needs to be a factor variable.
+
+There are two big base functions you need working with factors; You can convert a character variable to a factor variable with `factor()` and look at the levels of the factor with `levels()`:
+
+```{r}
+#| echo: true 
+#| warning: false 
+#| message: false 
+#| include: false 
+
+
+# copy the data to a new object to preserve the original
+factored_data <- survey_data
+
+# convert pet_breed to a factor variable
+factored_data$pet_breed <- factor(factored_data$pet_breed)
+
+# check the class and levels of the new factor variable
+class(factored_data$pet_breed)  # "factor"
+levels(factored_data$pet_breed)  # "bird" "cat" "dog" "fish" "ignuana" "none"
+```
+
+Now summarizing the data immediately gives us some quick, useful information about the distribution of pet breeds in our sample:
+
+```{r}
+#| echo: true
+
+summary(factored_data)
+```
+
+Pet breed is an *unordered* factor. There is no objective way to rank them. You can't mathematically say that a dog is "more" or "less" than a cat, however passionately you may feel one way or the other.
+
+The `happiness` variable is numeric, representing a 4-point scale of overall happiness.
+If this was truly a numeric, continuous variable, what would it mean to have a happiness level of 2.334? 
+Somewhere between mostly numb and pretty ok, but with no meaningful precision.
+
+This is actually an *ordered* factor (or ordinal variable), meaning that the values represent a meaningful order or ranking, but the intervals between the values are not necessarily equal or divisible.
+We can convert this numeric-looking variable to a factor the same way we did with the string-looking variable, using `factor()`, but we need to add an argument to specify that the levels are ordered:
+
+```{r}
+# convert happiness to an ordered factor variable
+factored_data$happiness <- factor(factored_data$happiness, 
+                                 levels = c(1, 2, 3, 4), # r can usually figure this out on its own, but it doesn't hurt
+                                 ordered = TRUE)
+                                 
+# check the class and levels of the new ordered factor variable
+class(factored_data$happiness)  # "ordered" "factor"
+levels(factored_data$happiness)  # "1" "2" "3" "4"
+```
+
+At this point, you could decide that it's more useful to have the levels labeled with their meanings instead of numbers. Good old `factor()` can do that too, with the `labels` argument:
+
+```{r}
+# convert happiness to an ordered factor variable with labels
+factored_data$happiness_label <- factor(factored_data$happiness, 
+                                 levels = c(1, 2, 3, 4), 
+                                 labels = c("horribly depressed", "mostly numb", "pretty ok", "weirdly great"),
+                                 ordered = TRUE)
+                                 
+# check the class and levels of the new ordered factor variable with labels
+class(factored_data$happiness_label)  # "ordered" "factor"
+levels(factored_data$happiness_label)  # "horribly depressed" "mostly numb" "pretty ok" "weirdly great"
+```
+
+Looking at the structure of the data frame can give some clarity on what R is doing with the factor variables:
+
+```{r}
+#| echo: true
+
+str(factored_data)
+```
+Now we can see that `name` is a character vector with at least 4 distinct values, `pet_breed` is a factor with 6 levels, `happiness` is an ordered factor with 4 levels, and `happiness_label` is an ordered factor with 4 labeled levels. Some important points to note here:
+
+1. The factor variables are actually stored as integers under the hood. The three factor variables, but not the `name` character variable, include a list of the integer values that correspond to each level of the factor. This is the case for the numeric-looking `happiness` variable too. "1" isn't 1, but it *is* mapped to 1.
+2. The values of both the `name` and `pet_breed` variables are presented in alphabetical order, but only the `pet_breed` variable is a factor with its values (levels) stored as integers.
+3. Beyond just being called "Ord.factor" instead of "Factor," the levels of the ordered factors are in the order we specified, not alphabetical order, made possible by the stored-as-integer thing. They're not just listed that way, they actually appear with the comparison operators. According to R, not only is "1" < "2"[^As intuitive as it may seem, this needn't be the case, since `"1"` is not the same as the integer `1`.], "horribly depressed" is objectively less than "mostly numb," which is less than "pretty ok," which is less than "weirdly great."
+4. The string-looking `happiness_label` variable no longer has its original level names ("1", "2", "3", "4"). Unlike in some other programming languages (e.g., Stata), renaming the levels of a factor variable in R replaces the original names instead of adding new ones. Check out the documentation for `?factor` to see how the `levels` and `labels` arguments work together.
+
+
+As complicated as this has already gotten, we'll get into even more depth about working with factor variables in @sec-forcats using the [forcats]{.pkg} package.
 
 #### Dates & Date-Times
 
@@ -403,7 +588,7 @@ In that chapter we'll talk a lot more about working with strings in R, including
 
 #### Arithmetic
 
-#### Comparison
+#### Comparison {#sec-comparison-operators}
 
 #### Logical
 

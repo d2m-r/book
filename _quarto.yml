@@ -26,6 +26,7 @@ bibliography: references.bib
 format:
   html:
     theme: 
+      - default
       - d2mr-theme.scss
   pdf:
     documentclass: scrreprt

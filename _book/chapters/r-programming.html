@@ -74,7 +74,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-87496c5a4dc3146df3c5dc9468277ae6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0fc3e09b5c27deb19f2bf9113b1e8fe3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -248,7 +248,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#writing-functions" id="toc-writing-functions" class="nav-link" data-scroll-target="#writing-functions"><span class="header-section-number">7.3.2</span> Writing functions</a></li>
   <li><a href="#scope-and-environments" id="toc-scope-and-environments" class="nav-link" data-scroll-target="#scope-and-environments"><span class="header-section-number">7.3.3</span> Scope and environments</a></li>
   </ul></li>
-  <li><a href="#iteration" id="toc-iteration" class="nav-link" data-scroll-target="#iteration"><span class="header-section-number">7.4</span> Iteration</a>
+  <li><a href="#sec-control-flow" id="toc-sec-control-flow" class="nav-link" data-scroll-target="#sec-control-flow"><span class="header-section-number">7.4</span> Control flow</a>
   <ul class="collapse">
   <li><a href="#conditional-statements" id="toc-conditional-statements" class="nav-link" data-scroll-target="#conditional-statements"><span class="header-section-number">7.4.1</span> Conditional statements</a></li>
   <li><a href="#loops" id="toc-loops" class="nav-link" data-scroll-target="#loops"><span class="header-section-number">7.4.2</span> Loops</a></li>
@@ -421,8 +421,8 @@ $a
 <p>Although this works, you can probably see why it’s not a great idea to rely on global variables within functions. For one thing, it means you need to redefine those global variables every time you start a new R session. For another, it just kind of defeats the point of functions! Functions are supposed to be self-contained and reusable across contexts. Any objects that a function needs to work should be defined within the function or passed to it as arguments so it can work independently of your global environment.</p>
 </section>
 </section>
-<section id="iteration" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="iteration"><span class="header-section-number">7.4</span> Iteration</h2>
+<section id="sec-control-flow" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="sec-control-flow"><span class="header-section-number">7.4</span> Control flow</h2>
 <section id="conditional-statements" class="level3" data-number="7.4.1">
 <h3 data-number="7.4.1" class="anchored" data-anchor-id="conditional-statements"><span class="header-section-number">7.4.1</span> Conditional statements</h3>
 <section id="if-else" class="level4" data-number="7.4.1.1">
@@ -462,6 +462,34 @@ $a
 </section>
 <section id="guided-exercise-the-programmers-groceries" class="level2" data-number="7.8">
 <h2 data-number="7.8" class="anchored" data-anchor-id="guided-exercise-the-programmers-groceries"><span class="header-section-number">7.8</span> Guided Exercise: The programmer’s groceries</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.4     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width, <span class="at">color =</span> Species) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="r-programming_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>
