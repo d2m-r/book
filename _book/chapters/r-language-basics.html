@@ -74,7 +74,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-0fc3e09b5c27deb19f2bf9113b1e8fe3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-8f6bf864d619b0cee9e33a4fd6b450f2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -311,16 +311,22 @@ window.Quarto = {
 <h2 data-number="5.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">5.1</span> Overview</h2>
 <p>R is a programming language and software environment based on another programming language called S. It is primarily used for data management, analysis, and presentation. R is free to use and open-source, making it both approachable to new learners and flexible for advanced users. R is built on collaboration and transparency, with a large community contributing to the development of the language and tools extending its functionality. The R community also works to make R accessible and functional, with extensive documentation for the language itself and its packages of functions. Beyond documentation, you can find a wealth of user-created resources for learning and using R, including freely available tutorials, videos, workshops, and full courses and textbooks (ahem).</p>
 <p>This chapter will introduce you to some of the most critical concepts for programming with R and give you enough basic knowledge to get started writing and running R code without getting bogged down in the weeds of technical details. Some of what you’ll find here is intentionally a bit shortcut-y. We’ll go into more depth on many of these topics in later chapters.</p>
-<!-- this should be a callout/box instead of a subsection -->
-<section id="r-vs.-python" class="level4" data-number="5.1.0.1">
-<h4 data-number="5.1.0.1" class="anchored" data-anchor-id="r-vs.-python"><span class="header-section-number">5.1.0.1</span> R vs.&nbsp;Python</h4>
-<!-- Make this a callout or other box, not part of the main text -->
-<p>Both R and Python are popular choices for statistical analysis and visualization in research, and the two have a lot in common. They are both free, open-source languages with large communities and extensive libraries of functions. The biggest difference between the two is that R is primarily focused on statistical analysis and visualization, while Python is a general-purpose programming language that can be used for data analysis as well as a range of other applications.</p>
-<p>If Python can do so much more than R, why would anyone use R? Because the Python’s versatility is a little bit of a double edged sword. Of course Python can handle complex data analysis like R, but R is <em>designed</em> for this stuff. Because R is highly specialized, a little code and knowledge go a long way. You do the work of knowing what kinds of data problems you need to solve, and R and the R community will give you powerful and precise tools to solve them.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p>Although Python is more widely used generally, R tends to be favored in academic and research settings, especially in the social sciences. As a psychologist, I care about managing data in reproducible and transparent ways, conducting and reporting a range of statistical analyses, and creating high-quality, publication-ready visualizations. R lets me get straight to the point to do all that, and it lets me do it without having to learn a language enough to really call myself a “programmer.”</p>
-</section>
-<section id="rstudio" class="level4" data-number="5.1.0.2">
-<h4 data-number="5.1.0.2" class="anchored" data-anchor-id="rstudio"><span class="header-section-number">5.1.0.2</span> RStudio</h4>
+<p><strong>Fair warning:</strong> It’s hard to explain data types without referencing data structures, data structures without referencing functions, operators without referencing operators, operators without referencing data types…Just bear with it. Take in what you can on your first pass knowing it’s unlikely to make perfect sense immediately.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+R vs.&nbsp;Python
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Both R and Python are popular choices for statistical analysis and visualization in research, and the two have a lot in common. They are both free, open-source languages with large communities and extensive libraries of functions. The biggest difference between the two is that R is primarily focused on statistical analysis and visualization, while Python is a general-purpose programming language that can be used for data analysis as well as a range of other applications. Because R is highly specialized, a little code and knowledge go a long way. Although Python is more widely used generally, R tends to be favored in academic and research settings, especially in the social sciences. There’s really no reason not to just learn both, but this class is about R and you’re the one who chose to take it, so that’s what we’re doing.</p>
+</div>
+</div>
+<section id="rstudio" class="level4" data-number="5.1.0.1">
+<h4 data-number="5.1.0.1" class="anchored" data-anchor-id="rstudio"><span class="header-section-number">5.1.0.1</span> RStudio</h4>
 <p>We talked about RStudio in <span class="quarto-unresolved-ref">?sec-rstudio</span>, but in case you missed it, here’s some things to know as you get started with R.</p>
 <p>R is a programming language; RStudio is an integrated development environment (IDE) for that language. You interact with R via the RStudio software. R exists without RStudio, but not the other way around.</p>
 <p>Well, at least in theory. In practice, RStudio is <em>the</em> way to interact with R. It’s a (relatively) user-friendly interface for writing and executing R code that is pretty streamlined to the needs of the R user. Unlike other popular IDEs (e.g., Visual Studio, AWS, Eclipse), RStudio doesn’t need to meet the needs of <em>any</em> programmer who might be doing <em>anything</em> in <em>any</em> language. Consequently, RStudio is the go-to for R users, since it lacks the clutter that comes with general-purpose IDEs.</p>
@@ -330,11 +336,11 @@ window.Quarto = {
 <li>…but it kinda might as well.</li>
 </ol>
 </section>
-<section id="object-oriented-programming" class="level4" data-number="5.1.0.3">
-<h4 data-number="5.1.0.3" class="anchored" data-anchor-id="object-oriented-programming"><span class="header-section-number">5.1.0.3</span> Object-oriented programming</h4>
+<section id="object-oriented-programming" class="level4" data-number="5.1.0.2">
+<h4 data-number="5.1.0.2" class="anchored" data-anchor-id="object-oriented-programming"><span class="header-section-number">5.1.0.2</span> Object-oriented programming</h4>
 <p>R is an <em>object-oriented programming language</em>, which means that it is built around the concept of “objects” that contain data and functions. What’s an object? According to <a href="https://en.wikipedia.org/wiki/Object_(computer_science)">Wikipedia</a>, an <em>object</em> is “an entity that has state, behavior, and identity.” I personally find that definition to be baffling, because like…isn’t that anything?</p>
 <p>Well, it kind of <em>is</em> anything. You can think of objects in R as any <em>thing</em> you want to work with in R. If it’s something you’d want to put a label on for some reason, that’s an object. A number or string as a variable to use later? Object. A table with data? Object. The output of a statistical test? Object. A plot? Object.</p>
-<p>You get the idea. Basically, every time you open up a new R session, you are the god of a tiny little empty world. If you want to see something happen in your world, you have to create the stuff that does the happening and is happened to and is the happening.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Want to watch the denizens of your universe put on a play about a magician who eats too much cheese? You have to bring into existence the players, the script, and the stage, but also the concepts of “play,” “magician,” “cheese,” “eating”, and “the amount that is socially and/or biologically too much cheese.”</p>
+<p>You get the idea. Basically, every time you open up a new R session, you are the god of a tiny little empty world. If you want to see something happen in your world, you have to create the stuff that does the happening and is happened to and is the happening.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Want to watch the denizens of your universe put on a play about a magician who eats too much cheese? You have to bring into existence the players, the script, and the stage, but also the concepts of “play,” “magician,” “cheese,” “eating”, and “the amount that is socially and/or biologically too much cheese.”</p>
 <p>In R, if you want to see a graph of the relationship between how much cheese an individual eats and whether or not they are a magician, you have to create that world with objects – the <em>environment</em>. The variables “how much cheese” and “is magician?” are objects. The rows, columns, and values that make up a table of data are objects. Those objects are all inside of an object that is the table itself. The calculation of the association between the two variables is an object. The graph that visualizes the relationship is an object. The axis labels on the plot object are objects…</p>
 <p><strong>WYNTKN:</strong></p>
 <ol type="1">
@@ -346,10 +352,11 @@ window.Quarto = {
 <section id="r-syntax" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="r-syntax"><span class="header-section-number">5.2</span> R syntax</h2>
 <!-- Men in tights clip of sheriff of rottingham -->
-<div style="float: right; max-width: 400px; margin-left: 1em;">
-<p><iframe width="500" height="281" src="https://www.youtube.com/embed/CKhGiFOMsS0" frameborder="0" allowfullscreen=""> </iframe></p>
+<div style="float: right; max-width: 50%; margin-left: 1em;">
+<iframe src="https://www.youtube.com/embed/CKhGiFOMsS0" frameborder="0" allowfullscreen="">
+</iframe>
 </div>
-<p>In natural language, syntax is the system of rules that govern how words are combined to form phrases and sentences in meaningful ways. Sentence makes mixing nothing all words of at the a it something up else or mean.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p>In natural language, syntax is the system of rules that govern how words are combined to form phrases and sentences in meaningful ways. Sentence makes mixing nothing all words of at the a it something up else or mean.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <p>Some things are nouns, some are verbs. Some verbs need objects, some don’t. Some words mean more than one thing and require specification or context. Some words connect other words together. Some words don’t serve a lot of functional purpose but make the sentence sound better or easier to understand. Words like pronouns can replace other words, but only after following the rules to let you do that. Some words you can omit entirely by restructuring other parts of the sentence. Some rules will technically communicate a meaning correctly, but are much more understandable if there is non-speech stuff like gestures or facial expressions to help clarify the meaning. Some rules are more flexible than others, and some are more rigid. Some rules are more important than others, and some are more about style than substance.</p>
 <p>In a programming language, syntax works similarly. R syntax is the set of rules that govern how you write code in R to make it do what you want it to do. For each example I gave for natural language above, I can think of at least one equivalent situation. Adding in stuff that isn’t necessary to make it easier to read? That’s taking advantage of R being whitespace insensitive. Using gesture to complement ambiguous meaning? That’s using comments. Eliding a subject because it’s implicit or otherwise already understood? That’s skipping optional arguments in functions, or using the pipe operator to pass objects from arguments in one function to arguments in another. You get the picture.</p>
 <p>While programming languages are nowhere near as complex and dynamic as natural languages, you can think about programming syntax as using the same kinds of building blocks.</p>
@@ -361,7 +368,7 @@ window.Quarto = {
 </section>
 <section id="variables" class="level3" data-number="5.2.2">
 <h3 data-number="5.2.2" class="anchored" data-anchor-id="variables"><span class="header-section-number">5.2.2</span> Variables</h3>
-<p><em>Variables</em> are the nouns of R syntax. The real world is filled with “things,” literal and abstract. Coffee, computer, RStudio, exhaustion, education, Stardew Valley Junimo plushie, the joy of playing Stardew Valley when you should be working… They just kind of exist. I can interact with them directly, but I can’t list out for you the Stardew Valley decor in my office<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> unless I name them. The Junimo is a value, and “Junimo” is the variable name I use to refer to that value.</p>
+<p><em>Variables</em> are the nouns of R syntax. The real world is filled with “things,” literal and abstract. Coffee, computer, RStudio, exhaustion, education, Stardew Valley Junimo plushie, the joy of playing Stardew Valley when you should be working… They just kind of exist. I can interact with them directly, but I can’t list out for you the Stardew Valley decor in my office<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> unless I name them. The Junimo is a value, and “Junimo” is the variable name I use to refer to that value.</p>
 <p><img src="../images/desk.png" class="img-fluid" style="max-height: 300px; float: left; margin-right: 1em; margin-bottom: 1em;"></p>
 <p>In R we create variables by assigning a value to a name with the assignment operator <code>&lt;-</code>. Technically you can use <code>=</code> to assign a value to a variable, but you really shouldn’t; <code>&lt;-</code> <a href="https://www.r-bloggers.com/2014/01/difference-between-assignment-operators-in-r/">is the preferred assignment operator in R</a>.</p>
 <p>Once you have created a variable, you can use it in your code to refer to the value it contains, including assigning other variables.</p>
@@ -387,7 +394,7 @@ window.Quarto = {
 <p>A function is an action itself – working, eating, procrastinating, voting – which exists conceptually on its own just fine. Calculating a mean, filtering to a subset of data, mapping data to a plot – all sensible and understandable on their own, but not necessarily implementable as is.</p>
 <p>To employ a function and tell R to do the thing, you will (usually) put one or details inside the parentheses: <code>mean(x)</code>, <code>filter(data, condition)</code>, <code>ggplot(data = df, aes(x = var1, y = var2))</code>. These are called <em>arguments</em>, and can be values, variables, or even other functions.</p>
 <p>When you pass an argument to a function (i.e., you include it in the parentheses), the function does the action to the argument(s) and <em>returns</em> the result.</p>
-<p>We’ll talk more about arguments in <a href="r-programming.html#sec-programming-functions" class="quarto-xref"><span>Section 7.3</span></a>. For now, <strong>WYNTK:</strong></p>
+<p>We’ll talk more about arguments in <a href="r-programming.html#sec-programming-functions" class="quarto-xref"><span>Section 7.3</span></a>. Here’s <strong>WYNTKN:</strong></p>
 <ol type="1">
 <li>Functions take 0 or more arguments.</li>
 <li>Arguments can be required or optional.</li>
@@ -434,19 +441,19 @@ window.Quarto = {
 <span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(numbers_df, <span class="fu">aes</span>(<span class="at">x =</span> number, <span class="at">y =</span> length)) <span class="sc">+</span></span>
 <span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>It’s not important right now that you understand everything going on in the code above. For now, just look at how functions are represented, what arguments can look like, how some arguments are optional, and what the function returns (or doesn’t return) as output.</p>
-<section id="functions-to-get-your-started" class="level4" data-number="5.2.3.1">
-<h4 data-number="5.2.3.1" class="anchored" data-anchor-id="functions-to-get-your-started"><span class="header-section-number">5.2.3.1</span> Functions to get your started</h4>
+<p>At this point it’s not important that you understand everything going on in the code above. Just look at how functions are represented, what arguments can look like, how some arguments are optional, and what the function returns (or doesn’t return) as output.</p>
+<section id="functions-to-get-started" class="level4" data-number="5.2.3.1">
+<h4 data-number="5.2.3.1" class="anchored" data-anchor-id="functions-to-get-started"><span class="header-section-number">5.2.3.1</span> Functions to get started</h4>
 <p>Now is a good time to play around with R functions to get a feel for how they work. The functions below are a collection of some of the base R functions you’re likely to use often. Try running the examples in your R console to see what they do, then try changing the inputs to see how the output changes.</p>
 <p>You can also use the <code>?functionname</code> command to view the documentation for any function, which will describe what the function does, its arguments, and its return value.</p>
 <section id="generally-useful-base-r-functions" class="level5" data-number="5.2.3.1.1">
 <h5 data-number="5.2.3.1.1" class="anchored" data-anchor-id="generally-useful-base-r-functions"><span class="header-section-number">5.2.3.1.1</span> Generally useful base R functions</h5>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 32%">
-<col style="width: 22%">
-<col style="width: 20%">
+<col style="width: 23%">
+<col style="width: 30%">
+<col style="width: 23%">
+<col style="width: 23%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -514,10 +521,10 @@ window.Quarto = {
 <div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>number_list <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">37</span>, <span class="dv">42</span>, <span class="dv">101</span>, <span class="dv">202</span>, <span class="dv">1000</span>, <span class="dv">2025</span>, <span class="sc">-</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 32%">
-<col style="width: 22%">
-<col style="width: 20%">
+<col style="width: 23%">
+<col style="width: 30%">
+<col style="width: 23%">
+<col style="width: 23%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -604,7 +611,7 @@ Complex and raw data
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
-<col style="width: 39%">
+<col style="width: 38%">
 <col style="width: 27%">
 </colgroup>
 <thead>
@@ -661,7 +668,7 @@ Complex and raw data
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">as.Date</span>(<span class="st">"2025-01-31"</span>))  <span class="co"># "Date"</span></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">as.POSIXct</span>(<span class="st">"1776-07-04 12:01:59"</span>))  <span class="co"># "POSIXct" "POSIXt"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Notice that for our 3 honorary data types we didn’t just pass it a value, we passed it a function that turned a value into the type we wanted.</p>
-<p>When you run <code>class()</code> and it returns something, it’s creating a data object which has to have a type itself. See if you can figure out what kind of data is being returned with <code>class()</code> by using <code>class()</code><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+<p>When you run <code>class()</code> and it returns something, it’s creating a data object which has to have a type itself. See if you can figure out what kind of data is being returned with <code>class()</code> by using <code>class()</code><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
 <section id="numeric" class="level4" data-number="5.2.4.1">
 <h4 data-number="5.2.4.1" class="anchored" data-anchor-id="numeric"><span class="header-section-number">5.2.4.1</span> Numeric</h4>
 <p><em>Numeric</em> variables are, unsurprisingly, numbers. Basically any number that you can treat like a number. If you added 0 to it, would it equal itself? If so, it’s numeric. (As opposed to a string that looks like a number, like <code>"100"</code>. Can’t add 0 to that. If you had to find a way to force it, it would probably be something like concatenation: <code>"1000"</code>.)</p>
@@ -706,7 +713,7 @@ Complex and raw data
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>no_double_quotes <span class="ot">&lt;-</span> <span class="st">'This string doesn'</span>t use double quotes.<span class="st">'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The second line will throw an “unexpected symbol” error. R saw you start a string with <code>'</code>, looked for another <code>'</code> to end the string, and treated everything between them as the string. When it got to the “t” in “doesn’t”, R no longer thought you were trying to define a string, and it didn’t know what do with the input <code>t use double quotes.'</code></p>
 <p>Generally I recommend using double quotes for strings, since it avoids the need to escape single quotes in contractions and possessives. Use single quotes in the rare cases you need to include double quotes in a string.</p>
-<p>In <span class="quarto-unresolved-ref">?sec-stringr</span>, we’ll cover how to include single quotes in single quoted strings (and double in double) if needed by <em>escaping</em> the quote character with a <code>\</code>. In that chapter we’ll talk a lot more about working with strings in R, including how to manipulate and analyze text data using the tidyverse <a href="https://stringr.tidyverse.org/"><code>stringr</code> package</a>, your go-to for working with strings in R.</p>
+<p>In <span class="quarto-unresolved-ref">?sec-stringr</span>, we’ll cover how to include single quotes in single quoted strings (and double in double) if needed by <em>escaping</em> the quote character with a <code>\</code>. In that chapter we’ll talk a lot more about working with strings in R, including how to manipulate and analyze text data using the tidyverse <span class="pkg"><a href="https://stringr.tidyverse.org/">stringr</a></span> package, your go-to for working with strings in R.</p>
 </section>
 <section id="logical" class="level4" data-number="5.2.4.4">
 <h4 data-number="5.2.4.4" class="anchored" data-anchor-id="logical"><span class="header-section-number">5.2.4.4</span> Logical</h4>
@@ -780,8 +787,8 @@ Complex and raw data
                                        Max.   :4.000  </code></pre>
 </div>
 </div>
-<p>We can’t learn anything about patters with pet breed here. It needs to be a factor variable.</p>
-<p>There are two big base functions you need working with factors; You can convert a character variable to a factor variable with <code>factor()</code> and look at the levels of the factor with <code>levels()</code>:</p>
+<p>We can’t learn anything about patterns with pet breed here. It needs to be a factor variable.</p>
+<p>There are two big base functions you need working with factors; You can convert a character variable to a factor variable with <span class="func">factor()</span> and look at the levels of the factor with <span class="func">levels()</span>:</p>
 <p>Now summarizing the data immediately gives us some quick, useful information about the distribution of pet breeds in our sample:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(factored_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -848,37 +855,272 @@ Complex and raw data
 <ol type="1">
 <li>The factor variables are actually stored as integers under the hood. The three factor variables, but not the <code>name</code> character variable, include a list of the integer values that correspond to each level of the factor. This is the case for the numeric-looking <code>happiness</code> variable too. “1” isn’t 1, but it <em>is</em> mapped to 1.</li>
 <li>The values of both the <code>name</code> and <code>pet_breed</code> variables are presented in alphabetical order, but only the <code>pet_breed</code> variable is a factor with its values (levels) stored as integers.</li>
-<li>Beyond just being called “Ord.factor” instead of “Factor,” the levels of the ordered factors are in the order we specified, not alphabetical order, made possible by the stored-as-integer thing. They’re not just listed that way, they actually appear with the comparison operators. According to R, not only is “1” &lt; “2”[^As intuitive as it may seem, this needn’t be the case, since <code>"1"</code> is not the same as the integer <code>1</code>.], “horribly depressed” is objectively less than “mostly numb,” which is less than “pretty ok,” which is less than “weirdly great.”</li>
-<li>The string-looking <code>happiness_label</code> variable no longer has its original level names (“1”, “2”, “3”, “4”). Unlike in some other programming languages (e.g., Stata), renaming the levels of a factor variable in R replaces the original names instead of adding new ones. Check out the documentation for <code>?factor</code> to see how the <code>levels</code> and <code>labels</code> arguments work together.</li>
+<li>Beyond just being called “Ord.factor” instead of “Factor,” the levels of the ordered factors are in the order we specified, not alphabetical order, made possible by the stored-as-integer thing. They’re not just listed that way, they actually appear with the comparison operators. According to R, not only is “1” &lt; “2”<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>, “horribly depressed” is objectively less than “mostly numb,” which is less than “pretty ok,” which is less than “weirdly great.”</li>
+<li>The string-looking <code>happiness_label</code> variable no longer has its original level names (“1”, “2”, “3”, “4”). Unlike in some other programming languages (e.g., Stata), renaming the levels of a factor variable in R replaces the original names instead of adding new ones. Check out the documentation for <span class="func">?factor</span> to see how the <code>levels</code> and <code>labels</code> arguments work together.</li>
 </ol>
 <p>As complicated as this has already gotten, we’ll get into even more depth about working with factor variables in <span class="quarto-unresolved-ref">?sec-forcats</span> using the <span class="pkg">forcats</span> package.</p>
 </section>
 <section id="dates-date-times" class="level4" data-number="5.2.4.6">
 <h4 data-number="5.2.4.6" class="anchored" data-anchor-id="dates-date-times"><span class="header-section-number">5.2.4.6</span> Dates &amp; Date-Times</h4>
+<p><em>Dates</em> and <em>date-times</em> are special data types in R used to represent points in time. Dates represent calendar dates (year, month, day) without a specific time of day, while date-times – as you might expect – include both the date and the time (hours, minutes, seconds). Date-times are also called <em>POSIX</em> objects in R.</p>
+<p>You can create date and date-time objects using the <span class="func">as.Date()</span> and <span class="func">as.POSIXct()</span> functions, respectively. These values are stored as numeric values representing the number of days (for dates) or seconds (for date-times) since a reference date (January 1, 1970).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>my_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">"1988-06-07"</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>my_datetime <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(<span class="st">"2016-03-19 14:30:00"</span>)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(my_date)      <span class="co"># "Date"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Date"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(my_datetime)  <span class="co"># "POSIXct" "POSIXt"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "POSIXct" "POSIXt" </code></pre>
+</div>
+</div>
+<p>You can perform various operations on date and date-time objects, such as calculating the difference between two dates, extracting specific components (like year or month), and formatting them for display.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the difference between two dates</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>your_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">"1991-04-10"</span>)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>your_date <span class="sc">-</span> my_date  <span class="co"># Time difference of 1037 days</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time difference of 1037 days</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>my_date <span class="sc">-</span> your_date <span class="co"># Time difference of -1037 days</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time difference of -1037 days</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>your_datetime <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(<span class="st">"2016-03-18 21:59:00"</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>your_datetime <span class="sc">-</span> my_datetime  <span class="co"># Time difference of -16.51667 hours</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time difference of -16.51667 hours</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>my_datetime <span class="sc">-</span> your_datetime <span class="co"># Time difference of 16.51667 hours</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time difference of 16.51667 hours</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You can extract the numeric component, but it won't give you the units</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(my_datetime <span class="sc">-</span> your_datetime) <span class="co"># 16.51667 ?? Hours? days? seconds? years?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 16.51667</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>close_datetime <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(<span class="st">"2016-03-19 14:31:20"</span>)</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>my_datetime <span class="sc">-</span> close_datetime  <span class="co"># Time difference of -1.333333 mins</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time difference of -1.333333 mins</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(my_datetime <span class="sc">-</span> close_datetime) <span class="co"># -1.333333 ?? Hours? days? seconds? years?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1.333333</code></pre>
+</div>
+</div>
+<p>It shouldn’t be hard to wrap your head around what dates and times are, but they can be surprisingly obnoxious to work with. Daylight savings, time zones, leap years, regional formatting for dates, 12 vs 24 hour clocks…things get complicated fast. Thankfully there are dedicated packages to make working with dates and times easier, including <span class="pkg">chron</span>, <span class="pkg">hms</span>, and the tidyverse’s <span class="pkg">lubridate</span>, which we’ll cover in <span class="quarto-unresolved-ref">?sec-lubridate</span>.</p>
 </section>
 <section id="missing-data-na" class="level4" data-number="5.2.4.7">
 <h4 data-number="5.2.4.7" class="anchored" data-anchor-id="missing-data-na"><span class="header-section-number">5.2.4.7</span> Missing data (NA)</h4>
+<p>In R, <em>missing data</em> points are represented by the special value <code>NA</code>, which stands for “Not Available.” Missing data is not actually a data type, but this is as good a spot as any to mention it.</p>
+<p>You can assign <code>NA</code> to any variable, regardless of its data type:</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>missing_numeric <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>missing_character <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>missing_logical <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="co"># etc.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>That means that <code>NA</code> can be part of data structures that can only contain a single data type, like vectors and matrices:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>numeric_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>character_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="cn">NA</span>, <span class="st">"d"</span>, <span class="st">"e"</span>)</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>logical_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">NA</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>matrix_with_na <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="cn">NA</span>), <span class="at">nrow =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here are some things that are <em>not</em> missing data:</p>
+<ol type="1">
+<li>The string <code>"NA"</code></li>
+<li>The empty string <code>""</code></li>
+<li>Logical <code>FALSE</code></li>
+<li>Numeric <code>0</code></li>
+<li><code>NULL</code>, which is a special object representing any undefined or non-existent value</li>
+<li>Anything that other programming languages use to represent missing data other than <code>NA</code><a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>:
+<ul>
+<li>Python: <code>None</code></li>
+<li>SQL: <code>NULL</code></li>
+<li>Stata: <code>.</code></li>
+<li>SPSS: nothing/blank</li>
+<li>Excel: nothing/blank or <code>#N/A</code></li>
+<li>MATLAB: <code>NaN</code></li>
+</ul></li>
+</ol>
+<p>There’s also <code>NaN</code> (Not a Number), which is a special numeric value representing undefined numeric values (like dividing by 0). R will handle <code>NA</code> and <code>NaN</code> similarly in many contexts, but they’re not equivalent.</p>
+<p>You can check whether a value is <code>NA</code> using the <span class="func">is.na()</span> function, which returns a logical value (<code>TRUE</code> or <code>FALSE</code>):</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(missing_numeric)      <span class="co"># TRUE</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(missing_character)    <span class="co"># TRUE</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(missing_logical)      <span class="co"># TRUE</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="cn">NA</span>)                   <span class="co"># TRUE</span></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="st">"NA"</span>)                 <span class="co"># FALSE</span></span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="st">""</span>)                   <span class="co"># FALSE</span></span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="cn">NaN</span>)                  <span class="co"># TRUE -- don't think too much about it...</span></span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="cn">NULL</span>)                 <span class="co"># logical(0)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>When you read in any new data, check that missing data is represented as <code>NA</code> and not something else. R will often, <em>but not always</em>, automatically convert other representations of missing data to <code>NA</code> when importing data. It’s particularly unreliable when the data being read in has anything non-tabular squashed into a tabular format, like comments, titles, and metadata.</p>
+<p>If you have missing data represented in a different way, you can convert it to <code>NA</code> using functions like <span class="func">na_if()</span> from the <span class="pkg">dplyr</span> package or <span class="func">replace()</span> from base R.</p>
 </section>
 </section>
 <section id="operators" class="level3" data-number="5.2.5">
 <h3 data-number="5.2.5" class="anchored" data-anchor-id="operators"><span class="header-section-number">5.2.5</span> Operators</h3>
+<p><em>Operators</em> are symbols that tell R to perform specific operations on one or more values or variables. These are usually separated into 3 categories: arithmetic, comparison, and logical. There are also a handful of others I’m lumping together for simplicity.</p>
 <section id="arithmetic" class="level4" data-number="5.2.5.1">
 <h4 data-number="5.2.5.1" class="anchored" data-anchor-id="arithmetic"><span class="header-section-number">5.2.5.1</span> Arithmetic</h4>
+<p><em>Arithmetic</em> operators are exactly what you think they are: they do math. Most or all of these should look very familiar, since they are either similar or identical to the basic math operators you learned in math class.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Operator</th>
+<th>Description</th>
+<th>Example</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>+</code></td>
+<td>Addition</td>
+<td><code>3 + 5</code></td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td><code>-</code></td>
+<td>Subtraction</td>
+<td><code>10 - 4</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>*</code></td>
+<td>Multiplication</td>
+<td><code>6 * 7</code></td>
+<td>42</td>
+</tr>
+<tr class="even">
+<td><code>/</code></td>
+<td>Division</td>
+<td><code>20 / 4</code></td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td><code>^</code></td>
+<td>Exponentiation (power)</td>
+<td><code>2 ^ 3</code></td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td><code>%%</code></td>
+<td>Modulo (remainder of division)</td>
+<td><code>10 %% 3</code></td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>The one operator from this group that might not be familiar is modulo (aka modulus or just “mod”). The result of the modulo operation is just the remainder left over after dividing one number by another.</p>
 </section>
 <section id="sec-comparison-operators" class="level4" data-number="5.2.5.2">
 <h4 data-number="5.2.5.2" class="anchored" data-anchor-id="sec-comparison-operators"><span class="header-section-number">5.2.5.2</span> Comparison</h4>
+<p><em>Comparison</em> or <em>relational</em> operators compare two values or variables and return a logical value (<code>TRUE</code> or <code>FALSE</code>) based on the result of the comparison. These should also be familiar from math class.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Operator</th>
+<th>Description</th>
+<th>Example</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>==</code></td>
+<td>Equal to</td>
+<td><code>5 == 5</code></td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td><code>!=</code></td>
+<td>Not equal to</td>
+<td><code>5 != 3</code></td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td><code>&gt;</code></td>
+<td>Greater than</td>
+<td><code>7 &gt; 4</code></td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td><code>&lt;</code></td>
+<td>Less than</td>
+<td><code>3 &lt; 8</code></td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td><code>&gt;=</code></td>
+<td>Greater than or equal to</td>
+<td><code>6 &gt;= 6</code></td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td><code>&lt;=</code></td>
+<td>Less than or equal to</td>
+<td><code>2 &lt;= 5</code></td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<p>Two quick things to point out with these:</p>
+<ol type="1">
+<li>The equal sign is <code>==</code>, not <code>=</code>. A single equal sign is an assignment operator, similar to <code>&lt;-</code>. More on that below.</li>
+<li>The not equal sign is <code>!=</code>, which is usually represented with “=/=” or “≠” outside of programming.</li>
+</ol>
 </section>
 <section id="logical-1" class="level4" data-number="5.2.5.3">
 <h4 data-number="5.2.5.3" class="anchored" data-anchor-id="logical-1"><span class="header-section-number">5.2.5.3</span> Logical</h4>
-</section>
-<section id="other-core-operators" class="level4" data-number="5.2.5.4">
-<h4 data-number="5.2.5.4" class="anchored" data-anchor-id="other-core-operators"><span class="header-section-number">5.2.5.4</span> Other core operators</h4>
+<p>Comparison operators are actually a subset of <em>logical</em> operators, which combine or modify logical values (<code>TRUE</code> or <code>FALSE</code>). Aside from the comparison operators above, there are 3 other logical operators:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 32%">
-<col style="width: 22%">
-<col style="width: 20%">
+<col style="width: 23%">
+<col style="width: 30%">
+<col style="width: 23%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Operator</th>
+<th>Description</th>
+<th>Example</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>&amp;</code></td>
+<td>“and”: both sides of the operators evaluate to <code>TRUE</code></td>
+<td><code>TRUE &amp; FALSE</code></td>
+<td>FALSE</td>
+</tr>
+<tr class="even">
+<td><code>|</code></td>
+<td>“or”: at least one side of the operator evaluates to <code>TRUE</code></td>
+<td><code>TRUE | FALSE</code></td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td><code>!</code></td>
+<td>“not”: the opposite of something’s logical evaluation</td>
+<td><code>!TRUE</code></td>
+<td>FALSE</td>
+</tr>
+</tbody>
+</table>
+<p>It helps to think of the <code>!</code> as “not”: <code>!=</code> is “not equal to”. <code>!TRUE</code> is <code>FALSE</code>. <code>is.na(x)</code> means “is x missing?” (true or false), and <code>!is.na(x)</code> means “is x <em>not</em> missing?” (true or false, the opposite of <code>is.na(x)</code>).</p>
+<p>The <code>&amp;</code> and <code>|</code> operators come in two flavors: single or (<code>&amp;</code> and <code>|</code>) and double (<code>&amp;&amp;</code> and <code>||</code>). The oversimplified difference is that single operators work element-wise on vectors, while double operators “short-circuit” and only <del>evaluate the first element of each vector</del> work correctly with scalars. The behavior of short-circuit operators in R has changed, leaving much of the documentation and support resources out of date. Confusing at best and often just flat out incorrect. <a href="https://rpubs.com/nturaga/single-v-double-logical-operators-R">Dig into this difference</a> if you want or need to, but for most purposes, you can just use the single operators (<code>&amp;</code> and <code>|</code>).<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> Be sure to look at resources for R 4.3.0 or later.</p>
+</section>
+<section id="special-and-miscellaneous" class="level4" data-number="5.2.5.4">
+<h4 data-number="5.2.5.4" class="anchored" data-anchor-id="special-and-miscellaneous"><span class="header-section-number">5.2.5.4</span> “Special” and miscellaneous</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 30%">
+<col style="width: 23%">
+<col style="width: 23%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -927,14 +1169,71 @@ Complex and raw data
 </tr>
 </tbody>
 </table>
+<p>We’ll talk more about assignment and indexing in <span class="quarto-unresolved-ref">?sec-r-programming</span>. <strong>WYNTKN:</strong></p>
+<ol type="1">
+<li><code>&lt;-</code> takes a value on the right and assigns it to a variable name on the left. Don’t use <code>=</code> for assignment outside of functions.</li>
+<li><code>whatever[x,y]</code> gets you the value in the xth row and yth column of a data frame or matrix. <code>whatever[x]</code> gets you the xth element of a vector or list.</li>
+</ol>
 </section>
-<section id="shortcutswrappers" class="level4" data-number="5.2.5.5">
-<h4 data-number="5.2.5.5" class="anchored" data-anchor-id="shortcutswrappers"><span class="header-section-number">5.2.5.5</span> Shortcuts/wrappers</h4>
+<section id="infix" class="level4" data-number="5.2.5.5">
+<h4 data-number="5.2.5.5" class="anchored" data-anchor-id="infix"><span class="header-section-number">5.2.5.5</span> Infix</h4>
+<p><em>Infix</em> functions are not operators. They are functions that take commonly used functions and allow you to use a special syntax to call them. Typically, you call a function by the name and a list of arguments contained in parentheses: <code>funcname(arg1, arg2, ...)</code>. Infix functions let you call a function by placing the function name between the arguments, like <code>arg1 funcname arg2</code>, the same way that operators work.</p>
+<p>You can recognize these by the percent signs (%) surrounding the “operator” name. Most shortcuts like this are <em>not</em> part of base R, and some packages will have versions of these shortcuts that overlap or conflict with each other, so be very careful to stay aware of where each one is coming from.</p>
+<p>Here are just a few examples:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 22%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>“Operator”</th>
+<th>Description</th>
+<th>Example</th>
+<th>Output</th>
+<th>Package(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>%in%</code></td>
+<td>Check if elements of one vector are present in another vector</td>
+<td><code>3 %in% c(1, 2, 3, 4, 5)</code></td>
+<td>TRUE</td>
+<td>base R</td>
+</tr>
+<tr class="even">
+<td><code>%like%</code></td>
+<td>Check if elements of one character vector are present in another character vector using pattern matching (similar to SQL LIKE)</td>
+<td><code>"cat" %like% c("cat", "dog", "fish")</code></td>
+<td><code>TRUE</code></td>
+<td><span class="pkg">data.table</span></td>
+</tr>
+<tr class="odd">
+<td><code>%&gt;%</code></td>
+<td>Pipe operator to pass the output of one function as the input to another</td>
+<td><code>data %&gt;% filter(condition)</code></td>
+<td>Passes <code>data</code> as the first argument to <code>filter()</code></td>
+<td><span class="pkg">magrittr</span>, <span class="pkg">dplyr</span>, <span class="pkg">tidyverse</span></td>
+</tr>
+<tr class="even">
+<td><code>%&lt;&gt;%</code></td>
+<td>Compound assignment pipe operator that updates the left-hand side with the result of the right-hand side operation</td>
+<td><code>data %&lt;&gt;% filter(condition)</code></td>
+<td>Updates <code>data</code> with the result of <code>filter(data, condition)</code></td>
+<td><span class="pkg">magrittr</span></td>
+</tr>
+</tbody>
+</table>
+<p>Again, these are <em>functions</em>, not operators. Learn more about infix functions <a href="https://adv-r.hadley.nz/functions.html#infix-functions">here</a>.</p>
 </section>
 </section>
 <section id="comments" class="level3" data-number="5.2.6">
 <h3 data-number="5.2.6" class="anchored" data-anchor-id="comments"><span class="header-section-number">5.2.6</span> Comments</h3>
-<p>Comments are segments of text ignored by R when it runs your code. The pound sign # tells R to ignore anything that follows on the same line.</p>
+<p>Comments are segments of text ignored by R when it runs your code. The pound sign <code>#</code> tells R to ignore anything that follows on the same line.</p>
 <p>Use comments often to add plain-English, collaborator-friendly explanations for what your code does. You can temporarily comment out code if 1) you think you may delete it later or 2) there will be some cases where you want R to ignore the code (leave commented) but other times you want it to run (uncomment).</p>
 <p>Add long comments by starting the line with 1 or more #. For blocks of comments that span multiple lines, start every line with a #.</p>
 <p>Put a # before code to temporarily “comment it out.” This code will be ignored by R until you remove the #.</p>
@@ -972,11 +1271,13 @@ Complex and raw data
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>Absolutely no shade on Python here. Yay Python! A+ great job! But this is a class about R.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>I study language. I’m allowed to talk nonsense like this.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Mixing up the words of a sentence makes it mean something else or nothing at all.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>And I assure you, it’s a lot more than a single Junimo plush.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>If you run <code>class(class(3.14))</code>, it will return <code>"character"</code>.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>I study language. I’m allowed to talk nonsense like this.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Mixing up the words of a sentence makes it mean something else or nothing at all.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>And I assure you, it’s a lot more than a single Junimo plush.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>If you run <code>class(class(3.14))</code>, it will return <code>"character"</code>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>As intuitive as it may seem, this needn’t be the case, since <code>"1"</code> is not the same as the integer <code>1</code>.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>I have primarily used R for many years and am relying on secondary sources for some of this info. If you have experience with other languages and see any errors here, please let me know!<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>I’m pretty sure that in my years of using R, I have <em>never</em> needed to explicitly use the double and/or.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 

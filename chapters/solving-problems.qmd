@@ -78,3 +78,9 @@ the course site).
 ### The D2M-R troubleshooting process
         
 ## Starting from "Nothing" 
+
+## Exercise(s?)
+
+<!-- Create a markdown document that looks matches a screenshot. I haven't explained anything about markdown. -->
+
+<!-- Start a debugging journal (submit for part of the engagement grade at the end of the quarter?) -->

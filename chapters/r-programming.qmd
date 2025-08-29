@@ -201,6 +201,8 @@ Any objects that a function needs to work should be defined within the function 
 
 ## Control flow {#sec-control-flow}
 
+### Logic evaluation
+
 ### Conditional statements
 
 #### if else 
