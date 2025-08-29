@@ -202,6 +202,27 @@ h6 {
     filter: blur(2px) saturate(0) opacity(.5);
 }
 
+
+// funciton/package styling also defined later for .reveal specific classes (changes to padding and color)
+/* Package name styling */
+.pkg {
+        background-color: lighten($accent3, 65%);
+            color: $accent3;
+            padding: 1px 3px;
+        border-radius: 4px;
+        font-family: "Fira Code", Menlo, "Courier New", monospace;
+        //font-weight: 500;
+    }
+
+/* Function name styling */
+.func {
+        background-color: lighten($accent1, 65%);
+            color: $accent1;
+            padding: 1px 3px;
+        border-radius: 4px;
+        font-family: "Fira Code", Menlo, "Courier New", monospace;
+    }
+
 // Navbar
 
 .navbar {
