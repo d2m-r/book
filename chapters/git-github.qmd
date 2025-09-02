@@ -4,7 +4,7 @@ title: "Git & GitHub"
 
 <!-- As of 6/28/25 -- all text pulled straight from W25 slides as a base -->
 
-# Overview
+# Overview {#sec-git-github}
 
 The point of version control. What *not* to do.
 
