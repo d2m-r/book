@@ -206,7 +206,7 @@ Here's **WYNTKN:**
 2.  Arguments can be required or optional.
 3.  View all possible arguments in a function's documentation with `?functionname` or `??functionname`.
 4.  If you pass arguments to a function in the order they are defined in the documentation, you can omit the argument names. Otherwise you start with `theargumentname =`.
-    -   `round(3.14159)` is the same as `round(x = 3.14159)`, but `round(3.14159, 2)` is not the same as `round(digits = 2, x = 3.14159)`.
+    -   `round(3.14159)` is the same as `round(x = 3.14159)`, but `round(2. 3.14159)` is not the same as `round(digits = 2, x = 3.14159)`.
 
 ``` r
 # Load the tidyverse packages to use filter, mutate, str_length, and ggplot
@@ -776,8 +776,7 @@ Two quick things to point out with these:
 
 #### Logical
 
-Comparison operators are actually a subset of *logical* operators, which combine or modify logical values (`TRUE` or `FALSE`).
-Aside from the comparison operators above, there are 3 other logical operators:
+*Logical* operators combine or modify logical values (`TRUE` or `FALSE`). There are 3 other logical operators:
 
 | Operator | Description | Example | Output |
 |-----------------|----------------------|-----------------|-----------------|
@@ -785,7 +784,7 @@ Aside from the comparison operators above, there are 3 other logical operators:
 | `|` | "or": at least one side of the operator evaluates to `TRUE` | `TRUE | FALSE` | `r TRUE | FALSE` |
 | `!` | "not": the opposite of something's logical evaluation | `!TRUE` | `r !TRUE` |
 
-It helps to think of the `!` as "not": `!=` is "not equal to".
+It helps to think of the `!` as the word "not": `!=` is "not equal to".
 `!TRUE` is `FALSE`.
 `is.na(x)` means "is x missing?" (true or false), and `!is.na(x)` means "is x *not* missing?" (true or false, the opposite of `is.na(x)`).
 

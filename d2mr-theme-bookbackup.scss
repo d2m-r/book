@@ -202,6 +202,27 @@ h6 {
     filter: blur(2px) saturate(0) opacity(.5);
 }
 
+
+// funciton/package styling also defined later for .reveal specific classes (changes to padding and color)
+/* Package name styling */
+.pkg {
+        background-color: lighten($accent3, 65%);
+            color: $accent3;
+            padding: 1px 3px;
+        border-radius: 4px;
+        font-family: "Fira Code", Menlo, "Courier New", monospace;
+        //font-weight: 500;
+    }
+
+/* Function name styling */
+.func {
+        background-color: lighten($accent1, 65%);
+            color: $accent1;
+            padding: 1px 3px;
+        border-radius: 4px;
+        font-family: "Fira Code", Menlo, "Courier New", monospace;
+    }
+
 // Navbar
 
 .navbar {
@@ -335,12 +356,12 @@ h6 {
     margin-bottom: 0px;
 }
 
-.overview{
-    background-color: $overview;
+.prep{
+    background-color: $prep;
 }
 
-.materials {
-    background-color: $materials;
+.inclass {
+    background-color: $inclass;
 }
 
 .todo {
@@ -362,6 +383,7 @@ h6 {
 .classbox {
     background-color:$accent3;
 }
+
 
 
  
@@ -425,25 +447,24 @@ h6 {
 }
 
 .alert p:last-of-type {
-  margin-bottom: 0;
+  margin-bottom: 0px;
 }
+
+///// Really alerts should use fake header text, because adding actual
+///// headings can glitch stuff out. This is more important for slides
+///// than books/sites, so I'm leaving this here. It's usable, but 
+///// just shouldn't be used.
 
 @mixin no-top-margin-headings($container) {
   #{$container} {
     h1, h2, h3, h4, h5, h6 {
-      margin-top: 100px;
+      margin-top: 0px;
     }
   }
 }
 
 @include no-top-margin-headings('.alert');
 @include no-top-margin-headings('.callout');
-
-
-///// Really alerts should use fake header text, because adding actual
-///// headings can glitch stuff out. This is more important for slides
-///// than books/sites, so I'm leaving this here. It's usable, but 
-///// just shouldn't be used.
 
 /// Make alert headings dependent on alert box background color
 $alert-colors: (
@@ -471,30 +492,35 @@ $alert-colors: (
   )
 );
 
-
-.reveal .alert {
-  border: 3px solid $dark-greystone;
-  border-radius: 8px;
-  padding: 15px;
-  margin: 1em 0;
-}
-
 @each $name, $colors in $alert-colors {
   .alert-#{$name} {
     background-color: map-get($colors, bg);
 
-    // boosts specificity by listing full selector for each heading type
-    h1, h2, h3, h4, h5, h6 {
-      color: map-get($colors, heading-color) !important;
+   .alert-#{$name} h1, h2, h3, h4, h5, h6 {
+      color: map-get($colors, heading-color);
     }
   }
 }
-
 
 // Make headings inside alerts not be anchored or show up in the table of contents
 
 // ???? Can't figure out how to do this without affecting headings outside alerts too
 
+
+
+// Layout stuff
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.floated-video {
+  float: right;
+  max-width: 500px;
+  margin-left: 1em;
+}
 
 
 // Callouts
@@ -552,7 +578,7 @@ $alert-colors: (
 
 .callout.callout-style-simple > div.callout-header {
   border-bottom: none;
-  font-size: 0.9rem;
+  //font-size: .5em;
   font-weight: 600;
 }
 
@@ -560,7 +586,7 @@ $alert-colors: (
   border-bottom: none;
   font-weight: 600;
   opacity: 70%;
-  font-size: 0.9rem;
+  font-size: 1.1em;
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
@@ -752,41 +778,6 @@ $callouts: (
   div.callout-#{$name} .callout-toggle::before {
     background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#{colorToRGB($body-color)}" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');
   }
-  
-    // --- size variants ---
-
-  // size variant: any callout of this type with .large
-  div.callout-#{$name}.large {
-    font-size: 1em;
-  }
-
-  div.callout-#{$name}.large .callout-body {
-    font-size: .9em;
-    padding: .3em 1em;
-  }
-
-
-  div.callout-#{$name}.large .callout-header {
-    font-size: 1.1em;
-    padding: .3em 1em;
-  }
-  
-    div.callout-#{$name}.large .callout-icon-container {
-    	margin: 0;
-    	padding: 0;
-    	display: flex;
-    	align-items: center;
-    }
-    
-    div.callout-#{$name}.large .callout-icon::before {
-    	width: 1em;
-    	height: 1em;
-    	background-size: contain;   // keep if icon is via background-image
-    	background-repeat: no-repeat;
-    	display: inline-block;
-    }
-
-  
 }
 
 // jsreveal-specific rules
@@ -899,8 +890,8 @@ $callouts: (
    margin-bottom: 1.2em !important;
 }
 
-.reveal .sourceCode > .code-with-copy {
-   // max-width: 90%; //not sure this does anything
+.reveal .sourceCode .code-with-copy {
+    //max-width: 97%;
 }
 
 pre > code.sourceCode > span {
@@ -908,25 +899,15 @@ pre > code.sourceCode > span {
 }
 
 .reveal .sourceCode .r code {
-    padding: 20px 0px 20px 20px !important;
+    padding: 20px;
 }
-
-
-.reveal .stretch-code pre.sourceCode code {
-    max-height: 100% !important;
-}
-
 
 .reveal .cell-output-stdout,
 .reveal .cell-output {
   font-size: 1.3em !important;  /* Adjust em value as needed */
-  background-color: $cool-white !important;
-  border: 2px solid $dark-greystone !important;
-  border-radius: 6px !important;
-  padding: 10px !important;
+
 }
 
-//.reveal .cell-output code { }
 
 /* Inline code */
 
@@ -952,40 +933,14 @@ pre > code.sourceCode > span {
     margin-left: 1em;
 }
 
-.reveal .slide ul li,
-.reveal .slide ol li {
-    margin-bottom: 0.2em;
-    margin-top: 0.2em;
+.reveal ul li {
+    margin-bottom: 0.5em;
     line-height: 1.4;
 }
-
-
-.reveal .tightlist ul {
-    margin-bottom: 0em !important;
-    margin-top: 0em !important;
-    margin-left: 0px !important;
-    line-height: 1.2 !important;
-    
-}
-
-.reveal .tightlist ul li {
-    margin-bottom: 0em !important;
-    margin-top: 0em !important;
-    margin-left: 0px !important;
-    line-height: 1.2 !important;
-    
-}
-
-.reveal .narrowlist ul,
-.reveal .narrowlist ul li {
-    margin-left: 0px !important;
-    
-} 
 
 .reveal ul li::marker {
     color: $accent1;
 }
-
 
 /* Dimming */
 
@@ -1087,33 +1042,16 @@ pre > code.sourceCode > span {
     }
 
 /* Emphasize important text */
-.reveal strong {
-    color: var(--secondary-color);
-    font-weight: 700;
-}
-
-/* Emphasize keywords */
-.reveal .keyword {
-    background-color: lighten($accent1, 60%);
-    color: $accent1;    
-    font-weight: 700;
-    padding: 2px 6px;
-    border-radius: 4px;
-}
-
-.reveal .critical {
-    background-color: lighten($danger, 45%);
-    color: $danger;    
-    font-weight: 700;
-    padding: 2px 6px;
-    border-radius: 4px;
-}
+    .reveal strong {
+        color: var(--secondary-color);
+        font-weight: 700;
+    }
 
 /* Package name styling */
     .reveal .pkg {
         background-color: lighten($accent3, 60%);
-        color: $accent3;
-        padding: 2px 6px;
+            color: $accent3;
+            padding: 2px 6px;
         border-radius: 4px;
         font-family: "Fira Code", Menlo, "Courier New", monospace;
         font-weight: 500;
@@ -1156,16 +1094,6 @@ pre > code.sourceCode > span {
  
 }
 
-// footnotes to appear within containers
-
-.reveal .slide .contained-aside {
-    float: right;
-  color: $dark-lake;
-  font-style: italic;
-  //align-items: right;
-  font-size: .8em;
-  margin-top: 20px;
-}
 
 /* Icons from hell */
 
@@ -1192,5 +1120,5 @@ pre > code.sourceCode > span {
   align-items: center;
 }
 
-// bubbles script only needed for jslides. disable for html
+// slides only
 //@import 'bubbles'; 
