@@ -616,6 +616,52 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="5.2" class="anchored" data-anchor-id="solving-your-own-problems"><span class="header-section-number">5.2</span> Solving your own problems</h2>
 <section id="error-messages" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="error-messages"><span class="header-section-number">5.2.1</span> Error messages</h3>
+<section id="tldr-inevitable-error-type-families" class="level4" data-number="5.2.1.1">
+<h4 data-number="5.2.1.1" class="anchored" data-anchor-id="tldr-inevitable-error-type-families"><span class="header-section-number">5.2.1.1</span> tl;dr – Inevitable Error Type Families</h4>
+<p>Errors starting with these phrases are super common and have predictable causes:</p>
+<ul>
+<li><code>could not find function</code>: the function’s package is not loaded (or more commonly, typos)</li>
+<li><code>Error in if</code>: non-logical data or missing values passed to R’s <code>if</code> conditional statement</li>
+<li><code>Error in eval</code>: references to objects that don’t exist</li>
+<li><code>cannot open</code>: attempts to read a file that doesn’t exist or can’t be accessed</li>
+<li><code>no applicable method</code>: using an object-oriented function on a data type it doesn’t support</li>
+<li><code>subscript out of bounds</code>: trying to access an element or dimension that doesn’t exist</li>
+<li><code>package errors</code>: R cannot install or load a package due to missing dependencies or conflicts</li>
+</ul>
+</section>
+<section id="common-error-messages" class="level4" data-number="5.2.1.2">
+<h4 data-number="5.2.1.2" class="anchored" data-anchor-id="common-error-messages"><span class="header-section-number">5.2.1.2</span> Common error messages</h4>
+<ul>
+<li><code>non-numeric argument to a binary operator</code>: at least one value/variable is not of a function’s required class
+<ul>
+<li>do you need to coerce variables or values (e.g., numeric to string; string to POSIX/date)</li>
+<li>check functions’ documentation for argument class requirements</li>
+</ul></li>
+<li><code>replacement has/is [...]</code>: usually means objects are not the same length
+<ul>
+<li>did you use any functions that combine scalars into a single scalar rather than a vector? e.g., using paste() vs c()/list()</li>
+<li>do all objects handle NA observations the same way? (e.g., one vector filtered them out and one didn’t)</li>
+</ul></li>
+<li><code>object not found</code>: the object does not exist in your environment
+<ul>
+<li>did you misspell or mis-capitalize?</li>
+<li>did you forget to run or source code in your current R session?</li>
+</ul></li>
+<li><code>function not found</code>: the function is not loaded in the R session
+<ul>
+<li>did you load the necessary package?</li>
+<li>did you misspell or mis-capitalize?</li>
+<li>do you have punctuation errors or unmatched parentheses?</li>
+</ul></li>
+<li><code>unexpected symbol</code>: punctuation is used incorrectly
+<ul>
+<li>do you have unmatched or unnecessary parentheses?</li>
+<li>did you forget a comma?</li>
+<li>did you use quotes to try to refer to an existing object?</li>
+</ul></li>
+<li><code>unexpected numeric constant</code>: same as above, and value after missing punctuation is a numeral</li>
+</ul>
+</section>
 </section>
 <section id="garbage-in-garbage-out-and-other-tropes" class="level3" data-number="5.2.2">
 <h3 data-number="5.2.2" class="anchored" data-anchor-id="garbage-in-garbage-out-and-other-tropes"><span class="header-section-number">5.2.2</span> Garbage in, garbage out (and other tropes)</h3>

@@ -1,10 +1,30 @@
 # Preface {.unnumbered}
 
-This is an in-development textbook for the course "From Data to Manuscript in R" offered at the University of Chicago. At this point, you shouldn't be seeing this at all. If you are not me, I'm really not sure why you're here, tbh. Go look at real books like [R for Data Science](https://r4ds.hadley.nz/).
+This is an in-development textbook for the sequence "Data to Manuscript in R" offered at the University of Chicago. 
+What you're seeing is in very, *very* early stages, with lots of blank spots, placeholders, unnecessary sections, and random notes and ramblings instead of clear, concise instruction. There's also a lot of content redundant with content in other, more reliable, course resources, like the course slides and website. If you keep exploring the content even knowing what a mess it is, **consider yourself warned!**
 
+This book is "published" as a resource for current students in the course as an example of how to use RStudio and Quarto to create and share documents. Students can also contribute to the book for course credit.
+
+Outside of what I assign as readings for D2M-R, this book probably isn't the best resource for learning R, especially if you aren't currently a student in the class who will get all my caveats and asterisks. 
+
+If you're looking for stable and complete resources to learn R, I recommend:
+
+-   [R for Data Science](https://r4ds.hadley.nz/).
+-   [Happy Git and GitHub for the useR](https://happygitwithr.com/).
+-   [STAT545](https://stat545.com/)
+-   [Hands on Programming with R](https://rstudio-education.github.io/hopr/index.html)
+-   [Data Science in a Box](https://datasciencebox.org/)
+-   [(Re)Master the Tidyverse Workshops](https://github.com/rstudio-education/remaster-the-tidyverse)
+-   [RYouWithMe](https://rladiessydney.org/courses/)
+
+    
 ## Outline
 
-Based on current slides
+Based on current slides, but definitely not ideal for the book...
+
+One of the main goals for the book is to be a supplement to class slides. The slides are currently way too verbose, so the idea is to migrate the details and nitty-gritty stuff away from the slides and into this book, which can be read at the student's own pace and be even more verbose when needed. Right now, there's a lot of overlap and a lot of seemingly random cut-and-paste.
+
+If you're a student looking to contribute to the book for a core skills project, one way to jump in is to look through the slides and see where things could be migrated to the book to tighten up the slides and expand the book.
 
 ### Quarter 1
 

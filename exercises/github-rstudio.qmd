@@ -1,6 +1,5 @@
 ---
 title: "Guided Exercise: Create and Sync a GitHub Repo with RStudio"
-format: html
 ---
 
 ## Overview

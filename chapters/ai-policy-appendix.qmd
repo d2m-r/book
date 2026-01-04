@@ -2,6 +2,15 @@
 title: "Responsible Use of LLMs and AI Tools"
 ---
 
+::: alert-warning
+
+This is a snapshot of the policy in 2024. Some of the policy has changed, and quite a bit of my philosophy has changed.
+
+Refer to the course site for the current policy. 
+
+:::
+
+
 # Using AI
 
 ## What are we talking about?
