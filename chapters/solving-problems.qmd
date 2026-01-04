@@ -297,6 +297,40 @@ Do *not* create a new file for each assignment. Your repo is the home of your re
 
 ### Error messages
 
+#### tl;dr -- Inevitable Error Type Families
+
+Errors starting with these phrases are super common and have predictable causes:
+
+-   `could not find function`: the function's package is not loaded (or more commonly, typos)
+-   `Error in if`: non-logical data or missing values passed to R's `if` conditional statement
+-  ` Error in eval`: references to objects that don't exist
+-   `cannot open`: attempts to read a file that doesn't exist or can't be accessed
+-   `no applicable method`: using an object-oriented function on a data type it doesn't support
+-   `subscript out of bounds`: trying to access an element or dimension that doesn't exist
+-   `package errors`: R cannot install or load a package due to missing dependencies or conflicts
+
+#### Common error messages
+
+-   `non-numeric argument to a binary operator`: at least one value/variable is not of a function's required class
+    -   do you need to coerce variables or values (e.g., numeric to string; string to POSIX/date)
+    -   check functions' documentation for argument class requirements
+-   `replacement has/is [...]`: usually means objects are not the same length
+    -   did you use any functions that combine scalars into a single scalar rather than a vector? e.g., using paste() vs c()/list()
+    -   do all objects handle NA observations the same way? (e.g., one vector filtered them out and one didn't)
+-   `object not found`: the object does not exist in your environment
+    -   did you misspell or mis-capitalize?
+    -   did you forget to run or source code in your current R session? 
+-   `function not found`: the function is not loaded in the R session
+    -   did you load the necessary package?
+    -   did you misspell or mis-capitalize?
+    -   do you have punctuation errors or unmatched parentheses?
+-   `unexpected symbol`: punctuation is used incorrectly
+    -   do you have unmatched or unnecessary parentheses?
+    -   did you forget a comma?
+    -   did you use quotes to try to refer to an existing object?
+-   `unexpected numeric constant`:  same as above, and value after missing punctuation is a numeral
+
+
 ### Garbage in, garbage out (and other tropes)
 
 ### Line-by-line debugging
